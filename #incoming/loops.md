@@ -1,4 +1,8 @@
-> Captured from website `src/content/ai/en/loops.mdx` on 2026-08-08. Verbatim, unedited.
+> Captured from website `src/content/ai/en/loops.mdx` on 2026-08-08. Verbatim except for the two
+> source lines under "Sources", corrected 2026-08-08: the Steipete line was a paraphrase and now
+> carries the post, and "Dario: My job now is to engineer loops LOL" was Boris Cherny's line with
+> the wrong name on it. The website copy this was captured from has since been deleted — the AI
+> section moved out of the site entirely on 2026-08-08, so this file is now the only copy.
 
 ---
 title: "AI — Loops"
@@ -21,8 +25,12 @@ example:
 
 ## Sources
 
-Steipete: I'm just orchestrating loops now
-Dario: My job now is to engineer loops LOL
+Steipete: [You shouldn't be prompting coding agents anymore. You should be designing loops that
+prompt your agents](https://x.com/steipete/status/2063697162748260627) (2026-06-07)
+Boris Cherny: "I don't prompt Claude anymore. I write loops — and the loops do the work. My job is
+to write loops." Said in a talk, not posted; known here through
+[@sairahul1's relay](https://x.com/sairahul1/status/2064279904989147577) (2026-06-09).
+**[source needed]** for the talk itself.
 Theo: [I've tried loops and they kinda worked, but are so expensive](https://www.youtube.com/watch?v=iJVJwmCKW9o)
 Armin Ronacher: [Will be the future, not there yet](https://lucumr.pocoo.org/2026/6/23/the-coming-loop)
 > Present-day models tend to produce code that is too defensive, too complex, too local in its reasoning.
