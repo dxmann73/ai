@@ -4,8 +4,7 @@ A dated reconstruction of my own AI/agent adoption from the evidence lying aroun
 still missing, plus how to turn it into an `adoption/` area here and a post on the website.
 
 Assembled 2026-08-08 from Chrome bookmarks and history, the Obsidian vault, and the git and GitHub
-history of my repos. Revised the same day after a first pass got several phases wrong.
-**[claim]** marks my own recollection with no artifact behind it yet.
+history of my repos. **[claim]** marks something with no artifact behind it yet.
 
 ## Where the evidence lives
 
@@ -41,15 +40,20 @@ def webkit(ts):
 
 ### Phase 0 — ChatGPT as a subject of study (2023-11 → 2024-04)
 
-Starts abruptly in November 2023, which matches how I remember it. First AI bookmark is 2023-11-12,
-heise's "Mach Dir Deinen eigenen ChatGPT-Bot", followed the next evening by the OpenAI DevDay
-keynote — so the trigger was GPTs and the DevDay announcements, not ChatGPT's launch a year earlier.
+Started pretty much immediately after ChatGPT was announced, probably like for many of you.
+
+I dallied around a bit, got very curious, impressed, then bored.
+This looked more like a very elaborate parrot to me.
+And boy, was I mistaken.
+
+My interest got rekindled in November 2023 when it became possible to create custom chatbots.
+First AI bookmark is 2023-11-12, heise's "Mach Dir Deinen eigenen
+ChatGPT-Bot", followed the next evening by the OpenAI DevDay keynote.
 
 Then a burst: 72 links filed in 2023-11, 81 in 2023-12. On 2023-11-18, between 07:10 and 07:20, I
 shortlisted ten Udemy courses in one sitting — seven on prompt engineering and the OpenAI API, plus
-three on classical ML/DL. The filing is a single morning; **the courses themselves I worked through
-later, on and off, extending into the middle of 2024.** The bookmark timestamp is the shopping list,
-not the study.
+three on classical ML/DL. **I bought a lot of them and finished none.** The structured-course route
+lost out to experimenting directly, which is where the actual learning happened.
 
 The vault is where the reading got digested: 150 notes in `KI/`, peaking at 93 files in 2023-12.
 Notable is `Prompt Engineering und Manipulation`, my own taxonomy written 2023-11-27 to 2023-11-30 —
@@ -70,9 +74,8 @@ Skeptic material arrives on schedule in 2024-04: the Devin debunking videos, "Wh
 
 ### Phase 1 — the daily-driver years (2024-05 → 2025-06)
 
-The `KI/` vault stops in 2024-04 and the `#read/ki` bookmarks thin out to almost nothing, which on
-the first pass looked like a dropout. It wasn't. Two things were happening that the bookmark record
-just doesn't capture.
+The `KI/` vault stops in 2024-04 and the `#read/ki` bookmarks thin out to almost nothing. That is
+not a dropout: two things were happening that the bookmark record just doesn't capture.
 
 First, the capture moved into `Dailies/`. AI-titled daily notes continue at a low but steady rate —
 8 in 2024-05, 2 in 2024-06, 3 in 2024-07, 3 in 2024-11 — mostly heise KI-Update digests, plus
@@ -88,13 +91,10 @@ here; there was nothing to file.
 **January 2025: Cursor enters, via tab-completion.** Autocomplete and tab-accept, used mainly on
 Terraform and on generating Terraform and AWS artifacts for project B. It did not go well — that
 attempt was largely unsuccessful, and the experience stayed mixed from there. This is the first time
-AI is inside the editor rather than in a browser tab, and it is the phase I skipped almost entirely
-in the first pass of this reconstruction.
+AI is inside my editor rather than in a browser tab.
 
-**[claim]** on the project B specifics — no repo in `~/projects` and no bookmark covers it. The only
-GitHub repo created in that window is `azure` (created 2025-01-05, "Development area for Azure
-Collections", now archived), which is the right date but the wrong cloud, so treat it as a lead
-rather than the artifact.
+There is no evidence for project B in any of the sources above, and there will not be: it is client
+work and the material is under NDA.
 
 ### Phase 2 — building something of my own (2025-07 → 2025-12)
 
@@ -119,22 +119,22 @@ Autumn 2025 is context engineering: humanlayer's `ace-fca.md` (2025-10-01), "MCP
 abstraction" (2025-10-08), Simon Willison's "Vibe engineering" (2025-10-12), and Cursor 2.0
 (2025-10-30).
 
-December 2025 is the crunch, and it is not the story I told myself. There are 58 commits in `nomap`
-that month, the largest burst until then, and agent config gets consolidated mid-stream — 2025-12-09
+December 2025 is the crunch. There are 58 commits in `nomap` that month, the largest burst until
+then, and agent config gets consolidated mid-stream — 2025-12-09
 "chore: merge .cursorrules and .instructions into AGENTS.md", then 2025-12-20 "feat: add AGENTS.md".
 So rules files predate December and got tidied during it.
 
-But the daily note from **2025-12-30, "Stand Projekt Notion nervt mich"**, says the crisis was about
+The daily note from **2025-12-30, "Stand Projekt Notion nervt mich"**, says the crisis was about
 *structure*, not about code. Notes scattered across paper slips, roughly a thousand voice memos at
 five minutes each (about a hundred hours of listening), Notion, Obsidian, and hand-linked Markdown
 in `blocks-docs` — with the explicit complaint that none of the tools let content be referenced,
 embedded, or re-ordered. It ends: "Die einzige Lösung kann also nur sein, das Tool direkt zu bauen,
 mit allen Requirements, so wie sie rein kommen."
 
-So the accurate version of "vibe coding gone wrong" is narrower than I first wrote it: the code was
-accumulating without specs or docs, yes — `docs/sdd/` does not exist before 2026-03-11 and the first
-plan artifact of any kind is 2026-02-22 — but what actually hurt at the end of 2025 was that the
-*thinking* had no home. The tool being built and the problem being felt were the same problem.
+So "vibe coding gone wrong" is the narrow version of it: the code was accumulating without specs or
+docs — `docs/sdd/` does not exist before 2026-03-11 and the first plan artifact of any kind is
+2026-02-22 — but what hurt at the end of 2025 was that the *thinking* had no home. The tool being
+built and the problem being felt were the same problem.
 
 The `blocks-docs` history shows the counter-move already underway before the crisis: "docs: Define
 scope" (2025-11-11), "feat: Start defining use cases" (2025-11-22), "docs: adds use cases and
@@ -159,11 +159,10 @@ Elasticsearch instead of Testcontainers, build the location-creation frontend, a
 documentation structure that had gotten lost between use cases, features and pitches — each with the
 same self-directed answer: *ask the model, use it as sparring, stop doing this alone.*
 
-This also settles a question I had it wrong on. I remembered reading Steinberger *before* the
-December mess. The bookmarks for "Just Talk To It" and "Shipping at Inference-Speed" are dated
-2026-01-01, the daily note is dated 2026-01-01, and the note reads as first contact. His posts are
-older than that, but my encounter with them is New Year's Day 2026 — after the December crisis, not
-before, and plausibly *because* of it.
+The Steinberger reading is dated: the bookmarks for "Just Talk To It" and "Shipping at
+Inference-Speed" are 2026-01-01, the daily note is 2026-01-01, and the note reads as first contact.
+His posts are older than that, but my encounter with them is New Year's Day 2026 — after the
+December crisis, and plausibly *because* of it. I was looking for answers. Had I been on the wrong path?
 
 What follows is fast:
 
@@ -186,10 +185,22 @@ What follows is fast:
 `nomap` carries 13 commits with a `Co-authored-by: Cursor` or `Made-with: Cursor` trailer, dated
 2026-02-22, 2026-03-14 and 2026-03-29.
 
-### Phase 4 — spec-driven development, for real (2026-03 → 2026-05)
+**Spec-driven development is already in the evidence here, not first in Phase 4.** The 2026-02-19/21
+run — "docs: spec refinement pt 1", "docs: Draft scope and ERM", "docs: move to prds" — is
+spec work under its own name, and it continues the `blocks-docs` specification effort that had been
+running since 2025-11. What Phase 4 adds is not the idea but the structure: a numbered tree in the
+code repo instead of scattered documents beside it.
 
-Dated by artifact, not by memory. `nomap` gets the whole `docs/sdd/` tree in one commit on
-2026-03-11, "docs: SDD pass" — eleven numbered documents from `01-purpose-and-scope.md` to
+**[claim]** "Revenge of the Junior Developer" (Sourcegraph, published 2025-03) belongs somewhere in
+early 2026, in this phase. I recall it distinctly, possibly secondhand through a Theo or Matthew
+Berman video rather than from the article itself. No browser trace supports a date: the only visit
+is a Google search on 2026-08-05, a re-lookup. Treat the six-waves framing as arriving alongside the
+Steinberger reading, not before it.
+
+### Phase 4 — spec-driven development gets a structure (2026-03 → 2026-05)
+
+`nomap` gets the whole `docs/sdd/` tree in one commit on 2026-03-11, "docs: SDD pass" — eleven
+numbered documents from `01-purpose-and-scope.md` to
 `11-risks-decisions-open-issues.md`, a README, and ADRs 0001 (OpenAPI as contract) and 0002 (entity
 ID conventions) with them. ADR 0004 on normalizing frontend API errors follows 2026-03-14, 0005 on
 2026-03-15, and 0003 only lands 2026-04-19 — the numbers were reserved before they were written. A
@@ -198,7 +209,7 @@ cross-cutting concerns, frontend/backend/persistence design, five more ADRs), an
 "docs: Move guidelines to ADRs where possible". Use-case-level planning appears 2026-05-14, "docs:
 uc-003 preparation and planning".
 
-The plan problem is a bigger fossil than I first wrote, and the git history has the whole arc.
+The plan problem is the biggest fossil here, and the git history has the whole arc.
 **Plans were deliberately throwaway artifacts, deleted as I went along, in every repo, for four
 months.** The rule was written down in `nomap`'s `AGENTS.md`: *"NEVER use markdownlint on plans.
 Plans will deleted later. We do not need to lint them."*
@@ -222,10 +233,9 @@ The sequence:
   The `AGENTS.md` line loses "Plans will deleted later" and gains "Plans are tracked in git under
   `plans/`". Three files land with it and are the only plans surviving in `nomap` today.
 
-So the fossil record is inverted from what I assumed: the plans existed all along and were destroyed
-on purpose, by a documented rule, for roughly sixteen weeks. Only the commit history remembers them
-— every deleted file is still recoverable from git, which makes this the best-evidenced failure mode
-in the whole reconstruction rather than the worst.
+So the plans existed all along and were destroyed on purpose, by a documented rule, for roughly
+sixteen weeks. Only the commit history remembers them now, and I'm pretty sure
+it would be impossible to make sense of them now.
 
 Yegge's Gas Town describes ending up with more plans than he could make sense of. My version is the
 stage before: the plans were treated as scaffolding, and the cost only became visible when
@@ -269,6 +279,22 @@ And on **2026-08-08 at 08:13**, both parts of "The Shape of Things to Come".
 (kirupa, 2026-08-01), Cursor's "Agent swarms and the new model economics" (2026-08-04), Flue agent
 hooks, "Deterministic Core, Agentic Shell", Cloudflare's `@cloudflare/computer`.
 
+**The loops-to-graphs sequence is dated, and the dates are the story.** Steinberger posts "you
+shouldn't be prompting coding agents anymore. You should be designing loops that prompt your agents"
+on **2026-06-07** (`https://x.com/steipete/status/2063697162748260627`). Two days later, on
+**2026-06-09**, @sairahul1 relays Boris Cherny saying the same thing from the other side of the tool
+(`https://x.com/sairahul1/status/2064279904989147577`): "I don't prompt Claude anymore. I write
+loops — and the loops do the work. My job is to write loops." Then on **2026-07-18** Steinberger
+posts `https://x.com/steipete/status/2078277297791189132` — "Are we still talking loops or did we
+shift to graphs yet?" — and the replies are exhaustion, not argument: "im tired boss", "bro stop I'm
+on vacation", "YouTube for the next 3 weeks 'WHY YOU NEED TO BE RUNNNG A GRAPH NOT A LOOP'".
+
+Six weeks from *design loops instead of prompts* to *loops are already the old thing*. That is where
+the practice currently stands, and the rate itself is the point Yegge's Part 1 is making — the
+Continuous Thunderdome is the condition of having to re-learn the unit of work every few weeks. My
+own reading lands inside it: I read "Welcome to Gas Town" on 2026-07-18, the same day as the graphs
+post, and neither was news by the time I got there.
+
 The current phase is not only being read about, it is being designed, in the vault. `docs/Projekte/`
 lists thirteen projects, and three of them are this:
 
@@ -291,52 +317,33 @@ done is in there, generate a log entry per item, later have an agent generate th
 the changes, and post each log to X and LinkedIn. That is `#incoming/` → `#log/` → post, written
 down before the repo existed.
 
-## Corrections applied, and what is still open
+## What is still open
 
-Resolved in this pass:
-
-- **The predecessor repo** is `blocks-fe`, GitHub-created 2025-07-10, archived; `nomap` is its
-  history renamed and merged into a monorepo on 2026-02-22.
-- **The middle years were not a gap** — daily ChatGPT use plus Cursor tab-completion from January
-  2025, with `Dailies/` carrying the reading through 2024-11.
-- **The Udemy courses** were filed in one morning in 2023-11 and worked through into mid-2024.
-- **The Steinberger reading** is dated 2026-01-01 by both bookmark and daily note, which contradicts
-  my recollection of having read him before December 2025. The note reads as first contact.
-- **The December 2025 crisis** was a notes-and-structure crisis as much as a code one.
-
-Still open:
-
-1. **The loops and graphs posts.** Corrected attribution: Yegge, in "The Shape of Things to Come"
-   Part 1, writes "We all saw Boris vaguepost that you should be building loops, and then Peter
-   vaguereplied that you should be building graphs" — that is **Boris Cherny** on loops and
-   **Peter Steinberger** on graphs, not Dario Amodei. I could not get the permalinks: Yegge's Part
-   1 links only one X post (`https://x.com/doodlestein/status/2012740971088289858`, unrelated),
-   search surfaced only secondhand coverage, and Chrome history has no visit to either post — the
-   closest traces are a Theo reply to `@bcherny` (`https://x.com/theo/status/2054717936024383829`,
-   visited 2026-05-15) and a Nakazawa reply to `@steipete`
-   (`https://x.com/cnakazawa/status/2055203307724132612`, same day). So: **[source needed]** for
-   both originals. Separately, `#incoming/loops.md` records two more unsourced lines — "Steipete:
-   I'm just orchestrating loops now" and "Dario: My job now is to engineer loops LOL" — which are
-   probably a different pair of remarks. Do not paraphrase any of these from memory in a post; get
-   the four permalinks or drop the claims.
-2. **"Revenge of the Junior Developer"** (Sourcegraph, published 2025-03) — read mid-2025, which
-   fits Phase 1 and means the six-waves framing was in my head a year before I acted on it. The only
-   browser trace is a Google search and visit on 2026-08-05, i.e. a re-lookup. Unverifiable from
-   here; the mid-2025 read stands on recollection.
-3. **Project B.** No artifact. `azure` (2025-01-05, archived) is the only candidate and the
-   description says Azure, not AWS.
-4. **Which Udemy courses got finished.** Udemy keeps completion records; the bookmarks don't.
+1. **The Cherny talk.** Both Steinberger posts are pinned (see Phase 5), so Yegge's "Boris
+   vaguepost… Peter vaguereplied" summary holds in substance, with the caveat that Steinberger
+   posted on loops first and the graphs line came six weeks later. What is still missing is the
+   **primary source for Cherny** — his line is a citation from a roughly thirty-minute talk, known
+   here only through @sairahul1's relay. **[source needed]**; do not cite it as an X post by Cherny.
+2. **Two fixes owed to `#incoming/loops.md`.** It attributes "My job now is to engineer loops LOL"
+   to Dario Amodei — on the evidence that is the Cherny quote with the wrong name on it. And
+   "Steipete: I'm just orchestrating loops now" is a paraphrase of the 2026-06-07 post; quote the
+   post instead. Fix both before either reaches a published piece.
+3. **Project B is closed, not open.** Client work, sources under NDA, no artifact will ever appear.
+   It stays unnamed and undescribed.
+4. **The Udemy courses.** Bought in quantity in 2023-11, none finished. Nothing to verify; the open
+   question is whether the experiment-instead-of-course pattern is worth naming as a phase-0 trait.
 
 ## Steps to flesh this out
 
 1. **Get the ChatGPT export.** Settings → Data controls → Export produces a `conversations.json`
    with per-conversation `create_time`. This is the only way to put numbers on Phase 1 — when weekly
-   became daily, what the Terraform and AWS prompts actually looked like, and whether project B is
-   recoverable from the conversation titles. Highest value of anything on this list.
-2. **Pin the four X posts** in item 1 above, or cut them.
-3. ~~**Mine the archived `blocks-*` repos** before they rot.~~ **Resolved: no mining trip needed.**
-   The local `nomap` clone has four root commits and 350 commits total, because the 2026-02-22
-   migration used `git subtree add` without `--squash`. All three histories came along whole:
+   became daily, and what the Terraform and AWS prompts actually looked like. It will not open up
+   project B, which stays under NDA regardless. Highest value of anything on this list.
+2. **Find the Cherny talk** behind the loops quote, or attribute it to @sairahul1's relay. Both
+   Steinberger posts are pinned and can be quoted as they stand.
+3. **The archived `blocks-*` repos need no mining trip.** The local `nomap` clone has four root
+   commits and 350 commits total, because the 2026-02-22 migration used `git subtree add` without
+   `--squash`. All three histories came along whole:
    `blocks-fe` (38 commits, 2025-07-10 → 2026-02-15, also the repo's main line),
    `blocks-be` (35 commits, 2025-10-05 → 2026-02-22) and `blocks-docs` (36 commits, 2025-11-07 →
    2026-02-22). Reach them by hash rather than by path — the subtree parents keep their original
@@ -361,8 +368,8 @@ Still open:
    my sequence is odd: theory in 2023, a year as a plain daily user, editor-tab-completion in early
    2025, and only then straight into harnesses — I largely skipped the assistant-in-the-IDE phase
    that most accounts treat as the middle step.
-7. **Decide what is private.** Project B is client work. Fix now whether it appears as "a
-   Terraform/TypeScript project" or by name, and keep that consistent between repo notes and post.
+7. **Keep project B generic.** Client work under NDA: it appears as "a Terraform/AWS project", never
+   by name, in repo notes and post alike.
 8. **Then write.** Posts are composed from `#log/` entries per this repo's posting workflow, not
    drafted from this file.
 
@@ -411,7 +418,7 @@ Open questions to seed the README with:
 Separate from the adoption post, and the one with a clock on it, since the material is three weeks
 old.
 
-Subject: three sources arguing about the same shift from three positions.
+Subject: four sources on the same shift, and the six weeks it took to move on from itself.
 
 - **Yegge, "The Shape of Things to Come" Part 1: The Continuous Thunderdome** (yegge.ai, 2026-08;
   read 2026-08-08). Loops and graphs via Beads plus a small Markdown project brain; a bespoke
@@ -421,16 +428,26 @@ Subject: three sources arguing about the same shift from three positions.
   of entry: ~$87k/month of token burn, ~69 billion tokens in July at 96% cache hits, and harness
   work occupying 20–25% of all his project work. Part 2 (Model Welfare for Agentic Engineers) was
   read the same morning and is already cited in `docs/Projekte/00-Ohana.md`.
-- **The loops post** — Boris Cherny, per Yegge's account. **[source needed]**.
-- **The graphs reply** — Peter Steinberger, per Yegge's account. **[source needed]**.
+- **Steinberger on loops** (`https://x.com/steipete/status/2063697162748260627`, 2026-06-07): stop
+  prompting coding agents, design loops that prompt them. Quotable directly.
+- **Cherny on loops** — a citation from a talk, not a post: "I don't prompt Claude anymore. I write
+  loops — and the loops do the work. My job is to write loops." Known only through @sairahul1's
+  2026-06-09 relay (`https://x.com/sairahul1/status/2064279904989147577`). **[source needed]** for
+  the talk.
+- **Steinberger on graphs** (`https://x.com/steipete/status/2078277297791189132`, 2026-07-18): "Are
+  we still talking loops or did we shift to graphs yet?" Six weeks after his own loops post, and
+  written as a jab at the churn rather than a proposal. The replies carry the same fatigue.
 
-The angle that makes this worth writing rather than summarizing: Yegge's own framing is "I am not
-special, I'm just ahead of you", and what he is describing costs $87k/month and spends a quarter of
-its effort on the harness. The honest question for anyone not in that position is which parts of the
-loop survive on a normal budget — and `#incoming/loops.md` already holds the counterweights: Armin
-Ronacher (the future, not there yet), Theo (worked, too expensive), and the Cursor swarm post's
-finding that stacked, decorrelated review lenses were where the compute actually paid off. That is
-an argument, not a link roundup.
+The angle that makes this worth writing rather than summarizing: the unit of work moved from prompt
+to loop to graph in about ten weeks, and Steinberger — who proposed the loop version — was the one
+asking whether it was already over. That churn is what Yegge's Continuous Thunderdome names, and
+where we currently are. His own framing is "I am not special, I'm just ahead of you", and what he is
+describing costs $87k/month and spends a quarter of its effort on the harness. So the honest
+question for anyone not in that position is not which unit is correct but which parts survive on a
+normal budget and a normal attention span — and `#incoming/loops.md` already holds the
+counterweights: Armin Ronacher (the future, not there yet), Theo (worked, too expensive), and the
+Cursor swarm post's finding that stacked, decorrelated review lenses were where the compute actually
+paid off. That is an argument, not a link roundup.
 
 Sequencing: this post and the adoption post pull in opposite directions — one is a forward look at a
 frontier setup, the other a backward look at a personal path. Do not merge them. The adoption post
