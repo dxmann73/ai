@@ -9,8 +9,8 @@ no build, no framework, no package manager, and none should be added without bei
 ## Layout
 
 ```text
-#incoming/   raw unsorted capture, trends toward empty
-#log/        processed incoming pieces, archived as YYYY-MM-DD-<slug>.md
+_incoming/   raw unsorted capture, trends toward empty
+_log/        processed incoming pieces, archived as YYYY-MM-DD-<slug>.md
 communication/ aglc/ business/ society/ tools/ reference/
 ```
 
@@ -18,12 +18,12 @@ Each topic folder has a `README.md` index listing its notes.
 
 ## Intake workflow
 
-When asked to process `#incoming/`:
+When asked to process `_incoming/`:
 
 1. Read the piece and decide which topic note it belongs to.
 2. Integrate the substance into that note — merge with existing text, do not just append a blob.
 3. Update the topic folder's `README.md` index if a new file was created.
-4. Move the original into `#log/YYYY-MM-DD-HHmm-<slug>.md` using `git mv`, and add two lines at the
+4. Move the original into `_log/YYYY-MM-DD-HHmm-<slug>.md` using `git mv`, and add two lines at the
    top:
 
    ```markdown
@@ -40,12 +40,12 @@ When asked to process `#incoming/`:
 ## Posting workflow
 
 The website at `../website` is the publishing target. Blog posts are **composed from the pool of
-unpublished `#log/` entries** — not necessarily one post per integrated piece, which would produce
+unpublished `_log/` entries** — not necessarily one post per integrated piece, which would produce
 a stream of thin posts nobody wants to read.
 
-After every move into `#log/`:
+After every move into `_log/`:
 
-1. List the unpublished pool: `grep -l 'Post: none yet' '#log/'*.md`.
+1. List the unpublished pool: `grep -l 'Post: none yet' _log/*.md`.
 2. Judge whether a theme has accumulated enough substance for one coherent post. Two or three
    related entries is usually the threshold; one entry rarely is. Say so plainly when the answer is
    no — "nothing publishable yet" is the expected outcome most of the time.
@@ -58,7 +58,7 @@ When they say go:
    Do not create a DE copy; the website's fallback handles a missing translation.
 2. The post is prose in the author's voice drawing on the log entries. It is not a concatenation of
    them, and it is not a copy of the topic note.
-3. Update every `#log/` entry the post drew on, replacing the pointer line:
+3. Update every `_log/` entry the post drew on, replacing the pointer line:
    `> Post: [<slug>](../../website/src/content/posts/en/<slug>.md), drafted YYYY-MM-DD.`
 4. Leave the log entries otherwise untouched. Their body stays verbatim forever.
 

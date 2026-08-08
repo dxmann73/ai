@@ -12,7 +12,7 @@ navigation; the two are separate builds and separate Cloudflare Workers behind o
 ```text
 ai/
   communication/ aglc/ business/ society/ adoption/ tools/ reference/   notes, unchanged
-  #incoming/ #log/                                                      excluded from the build
+  _incoming/ _log/                                                      excluded from the build
   plans/                                                                this file
   site/                                                                 Starlight, package.json, wrangler
 ```
@@ -132,10 +132,10 @@ new site.
 
 ## Phase 6 — Workflow
 
-1. Update `CLAUDE.md` here: `site/` exists, every note keeps an H1 as its first line, `#incoming/`
-   and `#log/` never publish.
+1. Update `CLAUDE.md` here: `site/` exists, every note keeps an H1 as its first line, `_incoming/`
+   and `_log/` never publish.
 2. Update `README.md` here to name the published URL alongside the read-on-GitHub framing.
-3. The posting workflow is unchanged — posts are still composed from the `#log/` pool and written
+3. The posting workflow is unchanged — posts are still composed from the `_log/` pool and written
    into `../website/src/content/posts/en/`. Add one convention: a published post links to the notes
    it draws on at `/ai`, and those notes link back to the post.
 4. Add a CI workflow that builds `site/` on push so broken links and missing H1s fail early.

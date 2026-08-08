@@ -1,4 +1,4 @@
-# #incoming
+# _incoming
 
 Raw capture. Drop things here without thinking about where they belong.
 
@@ -14,7 +14,7 @@ nothing to add to.
 
 ## Processing
 
-When an item gets integrated into a topic note, move it to [`#log/`](../%23log/) as
+When an item gets integrated into a topic note, move it to [`_log/`](../_log/) as
 `YYYY-MM-DD-HHmm-<slug>.md` with a pointer to where the content ended up. Nothing gets deleted — if
 a piece turns out to be worthless, log it saying so. See [`AGENTS.md`](../AGENTS.md) for the full
 workflow.

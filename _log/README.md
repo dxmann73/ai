@@ -1,6 +1,6 @@
-# #log
+# _log
 
-Processed pieces from [`#incoming/`](../%23incoming/), archived after their substance was integrated
+Processed pieces from [`_incoming/`](../_incoming/), archived after their substance was integrated
 into the main body of work.
 
 Append-only. This is the record of what was considered, when, and where it went — so an idea can be
@@ -32,7 +32,7 @@ Posts are composed from the pool of entries still marked `Post: none yet`, usual
 related ones at a time — never one post per entry. The unpublished pool is:
 
 ```bash
-grep -l 'Post: none yet' '#log/'*.md
+grep -l 'Post: none yet' _log/*.md
 ```
 
 When a post draws on an entry, its second line becomes a pointer to the draft in the website repo:
