@@ -15,7 +15,10 @@ Fast-moving. Notes here should be dated, since half of them will be wrong within
 
 ## Notes
 
-_None yet. Start one, then link it here._
+- [Beads: where issue data lives when work spans repositories](./beads-where-issue-data-lives.md)
+  (2026-08-08) — storage model, routing, hydration, and the four ways to reference work in another
+  repository. The adoption side is in
+  [`adoption/beads-adoption.md`](../adoption/beads-adoption.md).
 
 ## Open questions
 

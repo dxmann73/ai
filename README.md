@@ -13,6 +13,7 @@ Plain Markdown. No site generator, no build step. Read it on GitHub or in an edi
 | [`#log/`](%23log/)            | Processed incoming pieces, archived with the date they were integrated. |
 | [`communication/`](communication/) | Prompting, context engineering, specs, feedback loops, failure modes. |
 | [`aglc/`](aglc/)              | The Agentic Development Life Cycle, and how it differs from the SDLC.  |
+| [`adoption/`](adoption/)      | One practitioner's path in: phases, triggers, failure modes, tool adoption records. |
 | [`business/`](business/)      | Adopting agentic methods in a company: org design, economics, risk.    |
 | [`society/`](society/)        | Schools, labor, policy, ethics, public understanding.                  |
 | [`tools/`](tools/)            | Models, harnesses, MCP, evals, and the concrete tooling landscape.     |
