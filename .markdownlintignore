@@ -1,1 +1,4 @@
 .firecrawl/
+\#incoming/*
+!\#incoming/README.md
+\#log/20*.md
