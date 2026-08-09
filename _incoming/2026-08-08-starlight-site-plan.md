@@ -11,8 +11,8 @@ navigation; the two are separate builds and separate Cloudflare Workers behind o
 
 ```text
 ai/
-  communication/ aglc/ business/ society/ adoption/ tools/ reference/   notes, unchanged
-  _incoming/ _log/                                                      excluded from the build
+  communication/ aglc/ adoption/{business,society,journey}/ tools/ reference/   notes, unchanged
+  _incoming/ _blog/                                                     excluded from the build
   plans/                                                                this file
   site/                                                                 Starlight, package.json, wrangler
 ```
@@ -51,9 +51,10 @@ Goal: prove Starlight renders the notes in place, unmodified. Throwaway work; no
 
    The `#`-prefixed folders must be excluded. `#` is the URL fragment delimiter, so those routes
    cannot work.
-4. The notes carry no frontmatter at all — `adoption/beads-adoption.md` and every `README.md` open
-   directly with an H1. Starlight requires `title`. Write a loader wrapper that lifts the first H1
-   into `title` and strips it from the body so the heading is not rendered twice. Throw on a file
+4. The notes carry no frontmatter at all — `adoption/journey/beads-adoption.md` and every
+   `README.md` open directly with an H1. Starlight requires `title`. Write a loader wrapper that
+   lifts the first H1 into `title` and strips it from the body so the heading is not rendered
+   twice. Throw on a file
    with no H1; do not fall back to the filename.
 5. Relative links between notes point at `.md` files (`../tools/beads-where-issue-data-lives.md`).
    Rewrite them to extensionless routes under the base path.
@@ -126,16 +127,17 @@ new site.
 2. Deploy to `*.workers.dev` and verify the whole site there first.
 3. Once the domain exists, add the route `<domain>/ai/*` to the AI Worker. The website Worker keeps
    everything else.
-4. After attaching the route, walk `/`, `/de/`, `/posts`, `/ai`, and `/ai/adoption/beads-adoption` in
-   that order and confirm no pattern shadows the main site.
+4. After attaching the route, walk `/`, `/de/`, `/posts`, `/ai`, and
+   `/ai/adoption/journey/beads-adoption` in that order and confirm no pattern shadows the main
+   site.
 5. Measure the website → `/ai` navigation in DevTools with prerendering active.
 
 ## Phase 6 — Workflow
 
 1. Update `CLAUDE.md` here: `site/` exists, every note keeps an H1 as its first line, `_incoming/`
-   and `_log/` never publish.
+   and `_blog/` never publish.
 2. Update `README.md` here to name the published URL alongside the read-on-GitHub framing.
-3. The posting workflow is unchanged — posts are still composed from the `_log/` pool and written
+3. The posting workflow is unchanged — posts are still composed from the `_blog/` pool and written
    into `../website/src/content/posts/en/`. Add one convention: a published post links to the notes
    it draws on at `/ai`, and those notes link back to the post.
 4. Add a CI workflow that builds `site/` on push so broken links and missing H1s fail early.
