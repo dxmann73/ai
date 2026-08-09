@@ -45,7 +45,7 @@ at all. And if it is, you're well advised to slice it into smaller pieces. That'
 
 
 Not only he amount of cognitive load, but lack of engagement with the process and working utterly alone is draining people
-https://pydantic.dev/articles/the-human-in-the-loop-is-tired?ck_subscriber_id=2755325874
+https://pydantic.dev/articles/the-human-in-the-loop-is-tired
 
 [Genie is not going back, might as well ride the wave](https://forwardfuture.com/newsletter/originals/genie-s-not-going-back-in-the-bottle)
 In my opinion, two types of people will win with AI.

@@ -98,7 +98,7 @@ Usually agents forget a lot of things, so enforce basic compliance, build, tests
 
 ### PR Prep
 
-Check touched code for bugs => https://nolanlawson.com/2026/05/25/using-ai-to-write-better-code-more-slowly/?ck_subscriber_id=2755325874
+Check touched code for bugs => https://nolanlawson.com/2026/05/25/using-ai-to-write-better-code-more-slowly/
 TODO install skill and include in ADLC
 Which features get touched / altered by this, check them
 Thorough code review at end => HITL

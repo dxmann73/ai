@@ -55,7 +55,7 @@ Reduce noise in the context:
 
 - Firecrawl
 - Caveman
-- [ASTgrep](https://astgrep.com/blog/ast-grep-outline.html?ck_subscriber_id=2755325874)
+- [ASTgrep](https://astgrep.com/blog/ast-grep-outline.html)
 - [The new rules of context engineering, by Anthropic](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models?ref=aisecret.us)
 
 
