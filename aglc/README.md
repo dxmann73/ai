@@ -13,7 +13,10 @@ authoring to specifying, steering, and verifying.
 
 ## Notes
 
-_None yet. Start one, then link it here._
+- [`feature-lifecycle.md`](feature-lifecycle.md) — the path from an unstructured request to living
+  documentation: lanes, gates, the merge queue, the release branch, and severity.
+- [`artifacts.md`](artifacts.md) — the catalogue of every document the lifecycle produces, what
+  belongs in each, and how long it is allowed to live.
 
 ## Open questions
 

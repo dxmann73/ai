@@ -14,7 +14,9 @@ nothing to add to.
 
 ## Processing
 
-When an item gets integrated into a topic note, move it to [`_log/`](../_log/) as
-`YYYY-MM-DD-HHmm-<slug>.md` with a pointer to where the content ended up. Nothing gets deleted — if
-a piece turns out to be worthless, log it saying so. See [`AGENTS.md`](../AGENTS.md) for the full
-workflow.
+When an item gets integrated into a topic note, delete it with `git rm`. Its substance lives in the
+note now, and git holds the original. A piece that turns out to be worthless is deleted the same
+way, with the reason in the commit message.
+
+If it is also worth writing about publicly, stage an entry in [`_blog/`](../_blog/) before deleting.
+See [`AGENTS.md`](../AGENTS.md) for the full workflow.
