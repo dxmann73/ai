@@ -28,8 +28,8 @@ _incoming/bugs/ ────────────────────→ 
        severity — no taste gate                                                │
                                                           roadmap cutover ─────┤
                                                                                ↓
-                                                    release branch → stabilize → release → watch
-                                                                          │
+                                                    release branch → stabilize → live → tag, delete
+                                                                          │        watch
                                     _incoming/bugs/ ← backport beads ─────┘
 ```
 
@@ -39,7 +39,7 @@ What comes out the far end is everything that describes the system: the
 [SDD](artifacts.md#sdd--software-design-document), the
 [ADRs](artifacts.md#adr--architecture-decision-record), and the
 [operations material](artifacts.md#operations-manual). What is consumed is everything that described
-the *change*: the request, the requirement, the plan, the review finding. The full catalogue is in
+the *change*: the request, the requirement, the review finding. The full catalogue is in
 [`artifacts.md`](artifacts.md).
 
 Gates cluster in two places: one at intake, a dense band in front of the merge queue. They are the
@@ -163,7 +163,11 @@ errors.
 ## PRD
 
 Alignment output goes into a [PRD](artifacts.md#prd--product-requirements-document) — the *what* and
-the *why*, not the *how*.
+the *why*, not the *how*. The PRD is the plan; nothing else gets written between agreeing what is
+wanted and decomposing it into work.
+
+It also names which documentation artifacts this work is expected to change. These obligations
+decompose into beads with everything else, so the doc change lands in the same merge as the behaviour.
 
 The PRD is **transient by design**. It exists to be turned into work and then dissolved: its
 permanent parts are redistributed at closeout (see below) and the remainder is deleted. Keeping a
@@ -172,7 +176,8 @@ requirements that were superseded eighteen months ago.
 
 ## The graph
 
-The PRD is translated into [beads](artifacts.md#the-graph) so agents can start. Task state,
+Once alignment is achieved the PRD is mapped into [beads](artifacts.md#the-graph) so agents can
+start — the graph is the PRD in executable form, and that mapping is what ends it. Task state,
 sequencing, dependencies, and what is ready to work on live in the graph and nowhere else — the
 split is the whole reason for adopting it
 ([`adoption/journey/beads-adoption.md`](../adoption/journey/beads-adoption.md)).
@@ -184,9 +189,9 @@ be written later.
 
 ## Implementation
 
-Ordinary agentic work against the ready queue: plan, TDD, verification loops, review passes.
-[Plans](artifacts.md#plan) are per-bead scaffolding and have no life beyond their moment — a plan is
-the shopping list from last week.
+Ordinary agentic work against the ready queue: TDD, verification loops, review passes. A bead
+carries its own requirement, so there is nothing to plan on top of it — whatever an agent writes for
+itself inside a session is session scratch, not an artifact, and dies with the session.
 
 Work of any size reads the [SDD](artifacts.md#sdd--software-design-document) going in, because it is
 the account of the shape the work has to fit. Work large enough to change that shape extends it, and
@@ -292,11 +297,17 @@ Stability is produced deliberately at a chosen moment rather than maintained con
    one.
 3. **Release.** Notes, version, deploy, and then watch this version specifically — report and
    analyse changed behaviour immediately rather than waiting for someone to complain.
-4. **Backport.** Every fix made on the branch travels back to main as a
+4. **Cutover to live, and the end of the branch.** Going live is what ends the
+   [release branch](artifacts.md#release-branch). It is tagged at the released commit and deleted.
+   The tag is permanent — it is the only thing that keeps a shipped version addressable — and the
+   branch is not kept alongside it, because a branch that still exists is a branch someone will
+   commit to.
+5. **Backport.** Every fix made on the branch travels back to main as a
    [backport bead](artifacts.md#backport-bead) carrying both the error and the fix, entering through
-   `_incoming/bugs/`.
+   `_incoming/bugs/`. Beads outlive the branch: they live in the graph and carry the fix as text, so
+   deleting the branch costs them nothing.
 
-That fourth step is the load-bearing one, and it is worth being precise about what it is not. It is
+That last step is the load-bearing one, and it is worth being precise about what it is not. It is
 **not a cherry-pick**. Main has moved since the cutover, so the patch that worked on a frozen
 branch may not apply, may apply and be wrong, or may collide with a change that arrived in between.
 Sending the defect back as a bead with a known cause and a known remedy lets it be re-derived in
@@ -348,8 +359,8 @@ above it; if the intent is that everything outside the MLP is simply unprioritiz
 different and also defensible model.
 
 The scale only works because the two scope definitions it points at are real, written artifacts:
-the [MVP definition](artifacts.md#mvp-definition) and the
-[MLP definition](artifacts.md#mlp-definition), both permanent and both living in the specification.
+the [MVP and MLP definitions](artifacts.md#mvp-and-mlp-definitions), both permanent, both living in
+the specification as a tier field on each user journey.
 
 The payoff is mechanical. P1 stops being an argument and becomes a set membership test: is this
 workflow on the MVP list? Anyone can check, including an agent, in the middle of an incident, under
@@ -412,13 +423,20 @@ cheap process — it means the expense moved.
 Findings from any gate are transient. They are either fixed immediately or converted into a bead;
 they are never a document that accumulates.
 
+The reason a finding becomes a bead rather than a message to the working agent is context. The agent
+that produced the code is in the middle of something, and a finding pushed into its window
+sidetracks it, so we save it for later. Findings
+from the feature's own gates are worked in the same iteration as the PRD beads that produced them.
+
 ## Closeout
 
-The closeout bead reads the original request and the PRD next to what was actually built, and then
-does the redistribution. That gap — intent versus outcome — is the thing nobody has time for by
-hand, and it is the whole reason to make it a bead.
+Closeout exists to make sure documentation is clean and up to date. It reads the original request
+and the PRD next to what was actually built. That gap, intent versus outcome, is the thing nobody
+has usually time for, and it is the whole reason to make it a bead.
+It is written when the feature is decomposed, before any of the work starts, so the checklist exists
+before there is anything to check.
 
-Its checklist:
+Its checklist, each item an obligation the PRD named and a bead should already have discharged:
 
 - Fold the implemented behaviour into the
   [specification](artifacts.md#specification-and-user-journeys), as a user journey where that fits.
@@ -429,7 +447,7 @@ Its checklist:
   [ADRs](artifacts.md#adr--architecture-decision-record), including the ones the SDD rewrite just
   erased the evidence of. Structural decisions taken while the code was being written are exactly
   the ones that get lost, and the SDD is now the document that loses them.
-- Update the [e2e scenarios](artifacts.md#e2e-and-user-journey-scenarios), the
+- Update the [e2e scenarios](artifacts.md#tests), the
   [changelog](artifacts.md#changelog), the [roadmap](artifacts.md#roadmap), and the
   [operations manual](artifacts.md#operations-manual).
 - Re-verify neighbouring documentation. What did this change make wrong? Stale docs are worse than
@@ -441,13 +459,17 @@ Its checklist:
   knowable here — it belongs to whichever cutover picks the work up.
 - Notify the requester when it goes live. The wish factory only keeps working if wishes come back.
 
-Then the feature request and the PRD are deleted. They have no remaining content that is not held
-somewhere durable.
+An obligation that turns out not to have been discharged becomes a bead like any other finding.
 
-Closeout runs at the merge, not at the release, because that is when the work is finished and the
-context is still loaded. The one item that cannot run then is the notification: it fires at release,
-which means the closeout bead has to leave something behind that survives its own completion. A
-feature merged in one cycle and shipped in the next is the ordinary case, not an edge case.
+Then the feature request and the PRD are deleted. They have no remaining content that is not held
+somewhere durable, and that deletion is closeout's own diff.
+
+### Closeout under a swarm of agents
+
+Documentation landing inside the feature's own merge is what makes this survive volume. There is no
+separate documentation step for several features to contend over — the doc change is in the diff,
+and the merge queue serialises diffs already. A second feature touching the same user journey hits
+an ordinary conflict on an ordinary file and rebases, exactly as it would for code.
 
 ## Where things live
 
@@ -460,34 +482,7 @@ holds lives somewhere with a longer lifespan.** Deletion is a move, not a loss.
 
 ## Open questions
 
-- Is the ADR granularity from closeout right? A bead-sized change rarely warrants an ADR, but "we
-  will write one when it feels big" is how ADRs stop appearing.
 - Who runs the intake gate when the requester is a customer rather than a colleague, and how does a
   "no" travel back out without burning the channel?
-- Seven pre-merge gates is affordable at one feature a week and absurd at ten a day. Which of them
-  scale with volume and which have to be sampled instead of run every time?
-- A gate that always passes is not a gate, it is a ritual. What is the signal that one has stopped
-  catching anything — and is "it never fails" evidence of quality or of theatre?
-- What happens when stabilization takes longer than the gap to the next cutover? Two live release
-  branches is the failure this model has instead of a broken main, and the roadmap is the only thing
-  standing in front of it.
-- Severity is anchored to MVP and MLP, so drift moves into scope definition. What actually keeps
-  those two lists honest, given that adding to them is always the sympathetic argument and removing
-  from them never is?
-- A workflow can be broken for one customer and fine for everyone else. The MVP anchor scores that
-  a P1 on membership alone. Does severity need a second axis for reach, and does adding one give
-  back the judgment call the anchor was there to remove?
-- The fast track investigates before triaging, which means every arrival in `bugs/` costs agent
-  time. What is the volume at which that stops being cheaper than a human glance first?
 - An investigation arriving with a proposed fix anchors the reviewer on that fix. Separating
   evidence from proposal is a convention. Is there a mechanism?
-- Main being permanently broken and main being broken in a way that matters are different states,
-  and nothing in this model distinguishes them. Is there a cheap measure of how far from releasable
-  main currently is, or is the cutover always a leap?
-- Rebase notification assumes an agent can be interrupted usefully mid-work. At what diff size does
-  that stop being true, and is the answer to interrupt anyway or to let the work land and fix
-  forward?
-- Does the closeout bead survive contact with a swarm, where several features close in the same
-  hour against the same specification?
-- Notification of the requester implies the request carries an identity. `_incoming/` as described
-  has no schema at all. Where does the minimum metadata live without reintroducing a form?
