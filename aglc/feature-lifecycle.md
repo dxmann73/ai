@@ -28,9 +28,9 @@ _incoming/bugs/ ────────────────────→ 
        severity — no taste gate                                                │
                                                           roadmap cutover ─────┤
                                                                                ↓
-                                                    release branch → stabilize → live → tag, delete
-                                                                          │        watch
-                                    _incoming/bugs/ ← backport beads ─────┘
+                              release branch → stabilize → candidate → tag → live
+                                                   │                         watch
+                  _incoming/bugs/ ← backport beads ┘
 ```
 
 What comes out the far end is everything that describes the system: the
@@ -285,27 +285,23 @@ some of the time, and their output is beads.
 
 ### The release branch
 
-Stability is produced deliberately at a chosen moment rather than maintained continuously.
+Stability is produced deliberately at a chosen moment rather than maintained continuously. The
+branch and its full lifecycle are in [`releasing.md`](releasing.md); what matters here is where it
+attaches to the flow.
 
 1. **Cutover.** The [roadmap](artifacts.md#roadmap) decides when: this is what we want to deliver. A
-   [release branch](artifacts.md#release-branch) is cut from main at that point, and it is the
-   roadmap — not the state of the build — that picks the moment. This is the one place in the
-   lifecycle where the roadmap is load-bearing rather than informational.
+   [release branch](releasing.md) is cut from main at that point.
 2. **Stabilization loop.** The branch runs its own loop: full integration environment, full e2e,
-   every user journey, fix, repeat, until green. Nothing new lands here. The branch is closed to
-   features by construction, which is what makes "green" a reachable state rather than a moving
-   one.
+   every user journey, fix, repeat, until green. Each green head is a release candidate; nothing new
+   lands here.
 3. **Release.** Notes, version, deploy, and then watch this version specifically — report and
    analyse changed behaviour immediately rather than waiting for someone to complain.
-4. **Cutover to live, and the end of the branch.** Going live is what ends the
-   [release branch](artifacts.md#release-branch). It is tagged at the released commit and deleted.
-   The tag is permanent — it is the only thing that keeps a shipped version addressable — and the
-   branch is not kept alongside it, because a branch that still exists is a branch someone will
-   commit to.
-5. **Backport.** Every fix made on the branch travels back to main as a
+4. **Promotion, and the life after it.** Going live is tagging the candidate.
+   The release branch stays open for patches for as long as that version is in the field,
+   each patch stabilized and tagged the same way.
+5. **Backport.** Every fix made on a release branch travels back to main as a
    [backport bead](artifacts.md#backport-bead) carrying both the error and the fix, entering through
-   `_incoming/bugs/`. Beads outlive the branch: they live in the graph and carry the fix as text, so
-   deleting the branch costs them nothing.
+   `_incoming/bugs/`. Beads outlive branches: they live in the graph and carry the fix as text.
 
 That last step is the load-bearing one, and it is worth being precise about what it is not. It is
 **not a cherry-pick**. Main has moved since the cutover, so the patch that worked on a frozen

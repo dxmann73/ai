@@ -75,8 +75,9 @@ document that carried it.
 
 ### Backport bead
 
-**What it is:** a defect fixed on the release branch, travelling to main as a bead carrying both the
-error and the remedy.
+**What it is:** a defect found in the field or during stabilization, fixed on the
+[release branch](releasing.md) it belongs to, travelling to main as a bead carrying both the error
+and the remedy.
 
 **Why it exists:** because it is not a cherry-pick. Main has moved since the cutover, so the fix is
 re-derived in main's context rather than transplanted. The bead is also the identity of the defect
@@ -86,7 +87,8 @@ of them lands.
 **Contains:** the error, the fix as made on the branch, the severity, and a reference to the branch
 work it came from.
 
-**Lifespan:** until the fix lands on main. Closing it on main is what ends it.
+**Lifespan:** until the fix lands on every line it owes — main, and any release line in between.
+Closing it on main is what ends it.
 
 ### PRD — Product Requirements Document
 
@@ -125,19 +127,6 @@ difference is where they came from.
 
 **Lifespan:** until fixed or promoted to a bead. Findings are never a document that accumulates —
 a standing list of known problems is a list nobody reads.
-
-### Release branch
-
-**What it is:** not a document, but an artifact with a lifespan and worth listing as one. Cut from
-main at a roadmap cutover, closed to new features, stabilized until green.
-
-**Lifespan:** until the version goes live. Going live is the end of the branch: it is tagged at the
-released commit and then deleted. The tag is what remains, and it is permanent — a released version
-has to stay addressable for as long as anyone can be running it.
-
-Outstanding [backport beads](#backport-bead) are not a reason to keep the branch. They live in the
-graph, not on the branch, and they carry the fix as text rather than as a commit to cherry-pick, so
-they survive the deletion intact.
 
 ## Permanent artifacts
 
@@ -343,8 +332,9 @@ rather than present intent.
 **What it is:** what is intended, and in what order.
 
 **Why you need it:** it picks the cutover point. This is the one place in the lifecycle where the
-roadmap is load-bearing rather than informational — it decides when a release branch is cut, and it
-decides it on intent rather than on the state of the build.
+roadmap is load-bearing rather than informational — it decides when a
+[release branch](releasing.md) is cut, and it decides it on intent rather than on the state of the
+build.
 
 **Lifespan:** permanent, continuously revised.
 
@@ -425,11 +415,9 @@ in the same file.
 | Wish | Until shaped or dismissed | Promotion to a request |
 | Feature request | Until PRD exists | Closeout |
 | Bug report | Until the fix lands; repro survives as a test | The fix |
-| Backport bead | Until the fix lands on main | Closing on main |
+| Backport bead | Until the fix lands on every line it owes | Closing on main |
 | PRD (the plan) | Until implemented | Closeout |
 | Gate findings | Until fixed or promoted to a bead | The fix |
-| Release branch | Until the version goes live | Going live — tagged, then deleted |
-| Release tag | Permanent, while anyone can be running that version | Never |
 | Beads / task state | Until closed; graph keeps history | Nothing — it is the graph |
 | Vision (`VISION.md`, repo root) | Permanent, rarely revised | Never |
 | Specification / user journeys | Permanent, continuously revised — one file per journey | Never |

@@ -17,6 +17,7 @@ authoring to specifying, steering, and verifying.
   documentation: lanes, gates, the merge queue, the release branch, and severity.
 - [`artifacts.md`](artifacts.md) — the catalogue of every document the lifecycle produces, what
   belongs in each, and how long it is allowed to live.
+- [`releasing.md`](releasing.md) — main, release branches/candidates, going live as a tag.
 
 ## Open questions
 
