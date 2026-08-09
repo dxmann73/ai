@@ -4,7 +4,7 @@ Status as of 2026-08-08: decided and planned, not yet installed. This note recor
 the sequence; it gets updated as steps land rather than rewritten afterwards.
 
 The mechanics of the tool — storage model, routing, hydration, cross-repository references — are in
-[`tools/beads-where-issue-data-lives.md`](../tools/beads-where-issue-data-lives.md). This note is
+[`tools/beads-where-issue-data-lives.md`](../../tools/beads-where-issue-data-lives.md). This note is
 the adoption side: why now, what it replaces, and what the rollout actually looks like.
 
 ## Where this came from

@@ -1,27 +1,27 @@
 # Adoption
 
-The individual practitioner's path into agentic development: what changed, when, what forced each
-change, and what it cost.
+What happens when agentic methods actually get taken up — by companies, by the wider public, and by
+one practitioner in particular.
 
-Distinct from [`business/`](../business/), which is about organizations adopting agentic methods.
-This folder is about one person's trajectory — mine first, generalizable second. How the loop itself
-works belongs in [`aglc/`](../aglc/); the concrete tooling belongs in [`tools/`](../tools/).
+Three aspects, one per subfolder. They share a question — what changes, what breaks, what it costs —
+and differ only in who is doing the adopting.
 
-## Scope
+| Folder                      | Who is adopting                                                     |
+| --------------------------- | ------------------------------------------------------------------- |
+| [`business/`](./business/)  | Organizations: org design, economics, process, risk, governance.     |
+| [`society/`](./society/)    | Everyone else: schools, labor, policy, ethics, public understanding. |
+| [`journey/`](./journey/)    | Me: phases, triggers, failure modes, and records of adopting a tool. |
 
-- The dated reconstruction of the path, and the phases it falls into.
-- What triggered each transition: a failure, a tool, or an article.
-- Failure modes hit along the way, named and dated.
-- Adoption records for individual tools: what was chosen, how it was rolled out, what it replaced.
+## What belongs elsewhere
 
-## Notes
-
-- [Adopting Beads](./beads-adoption.md) — replacing throwaway plan files with an in-repo task graph,
-  and the reasoning split that comes with it.
+- How the agentic loop itself works — [`aglc/`](../aglc/).
+- What a tool is and how it behaves — [`tools/`](../tools/). A journey note says why a tool was
+  picked and what the rollout cost; the tool note says how the thing works. When both exist they
+  link to each other.
+- Prompting, specs, and feedback loops — [`communication/`](../communication/).
 
 ## Open questions
 
-- Is the phase sequence necessary, or can someone entering now skip to the end?
-- What forces each transition — a failure, a tool, or an article, and in what order?
-- Does the reading cause the practice or rationalize it after the fact?
-- Which phases were wasted time in hindsight, and which only look wasted?
+- Do the three move together, or does one lag far enough behind to become the binding constraint?
+- Is a personal trajectory evidence of anything, or only a source of hypotheses about the other two?
+- Which failure modes are the same at all three scales, and which are scale-specific?

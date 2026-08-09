@@ -4,6 +4,9 @@ The concrete landscape: models, harnesses, protocols, and the machinery around t
 
 Fast-moving. Notes here should be dated, since half of them will be wrong within a year.
 
+A note here describes what a tool is and how it behaves. Why one was picked and what rolling it out
+cost belongs in [`adoption/journey/`](../adoption/journey/), which links back here.
+
 ## Scope
 
 - Models: capabilities, tradeoffs, and how to choose between them for a given job.
@@ -18,7 +21,7 @@ Fast-moving. Notes here should be dated, since half of them will be wrong within
 - [Beads: where issue data lives when work spans repositories](./beads-where-issue-data-lives.md)
   (2026-08-08) — storage model, routing, hydration, and the four ways to reference work in another
   repository. The adoption side is in
-  [`adoption/beads-adoption.md`](../adoption/beads-adoption.md).
+  [`adoption/journey/beads-adoption.md`](../adoption/journey/beads-adoption.md).
 
 ## Open questions
 

@@ -2,6 +2,9 @@
 
 Bringing agentic methods into an organization: what changes, what breaks, and what it costs.
 
+The organizational aspect of [`adoption/`](../). The public is in [`society/`](../society/), my own
+path in [`journey/`](../journey/).
+
 ## Scope
 
 - Adoption paths: pilots, champions, mandates, and why each succeeds or stalls.
