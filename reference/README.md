@@ -9,7 +9,7 @@ Shared vocabulary and sources for the rest of the repo.
 
 ## Rules
 
-Reference material is descriptive, not argumentative. Opinions belong in the topic folders. If a
+Reference material is descriptive. Opinions belong in the topic folders. If a
 glossary entry starts growing a thesis, it wants to be a note somewhere else.
 
 Every reading-list entry gets a date and a one-line reason it earned a place. Undated links rot

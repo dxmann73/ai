@@ -1,7 +1,7 @@
 # Adopting Beads
 
 Status as of 2026-08-08: decided and planned, not yet installed. This note records the reasoning and
-the sequence; it gets updated as steps land rather than rewritten afterwards.
+the sequence; it gets updated as steps land.
 
 The mechanics of the tool — storage model, routing, hydration, cross-repository references — are in
 [`tools/beads-where-issue-data-lives.md`](../../tools/beads-where-issue-data-lives.md). This note is
@@ -45,7 +45,7 @@ were kept and not indexed. Yegge describes ending up with more plans than he cou
 This is the stage before that: plans treated as disposable, with the cost only becoming visible when
 use-case-level work needed the previous month's reasoning back.
 
-So the adoption is not "add a task tracker". It is a **split**, and the split is the whole point:
+So the adoption is a **split**, and the split is the whole point:
 
 | Content | Destination |
 | --- | --- |
@@ -53,8 +53,8 @@ So the adoption is not "add a task tracker". It is a **split**, and the split is
 | Why a choice was made, what was rejected, when to revisit | `docs/SDD/` and `docs/ADR/` |
 | Measured state of a live system | Its own inventory file |
 
-Task state was the part that was safe to delete all along. Reasoning was not, and it was the part
-that kept getting deleted with it because both lived in the same file.
+Task state was the part that was safe to delete all along. Reasoning kept getting deleted with it
+because both lived in the same file.
 
 ## The rollout
 
@@ -66,8 +66,8 @@ hand and only then does the work move into the graph.
    one nvm-managed Node version and vanish on a version switch.
 2. **Document the procedure once**, in the box-setup repository: how to attach Beads to a project,
    what `bd init` writes, which per-agent integrations exist, and the upgrade path past the
-   schema-version guard. The procedure is reusable and belongs at box level. The rollout work
-   itself does not — each repository carries its own adoption tasks.
+   schema-version guard. The procedure is reusable and belongs at box level; each repository
+   carries its own adoption tasks.
 3. **Add the agent rule** globally: in a Beads-enabled repository, prime at session start, work from
    the ready queue, claim atomically, and never use the interactive editor command, which an agent
    cannot drive.
@@ -76,24 +76,23 @@ hand and only then does the work move into the graph.
    split along the table above: checklists into Beads, rationale into `docs/SDD/` and `docs/ADR/`.
 5. **Then the second repository**, once the first has proven the split holds in practice.
 
-Cross-repository work is handled by per-repository databases plus hydration, not by a central
-store — the reasoning is in the tools note. One constraint from that is worth repeating here because
+Cross-repository work is handled by per-repository databases plus hydration; the reasoning is in
+the tools note. One constraint from that is worth repeating here because
 it is easy to get backwards: `.beads/` and its config are committed, so hydration may run **from a
 public repository into a private one, never the reverse**.
 
 ## What would count as this having worked
 
 - Reasoning written six months ago is findable without `git log --diff-filter=D`.
-- The ready queue is trusted enough to be the actual answer to "what now", rather than a second
-  place to look after the markdown.
+- The ready queue is trusted enough to be the actual answer to "what now".
 - No plan file is deleted to clean up. Nothing needs deleting, because task state and reasoning no
   longer share a file.
 
 ## What would count as it having failed
 
 - Rationale drifting back into bead notes until the design documents go stale and nobody trusts
-  them. This is the predictable failure and it is not hypothetical — it is the same failure as the
-  throwaway-plan rule, wearing a different hat.
+  them. This is the predictable failure, the same one as the throwaway-plan rule wearing a
+  different hat.
 - A schema migration across binary versions costing more than the tool saves. The tool is young and
   carries a real database underneath.
 - The graph becoming write-only: beads created diligently, never read, and the ready queue quietly

@@ -1,7 +1,7 @@
 # _blog
 
 Staging for posts. Entries here are drafts and raw material waiting to become something on the
-website — not an archive.
+website.
 
 This folder trends toward empty, the same way [`_incoming/`](../_incoming/) does. An entry leaves in
 one of two ways: it becomes a published post and is deleted, or it turns out to be wrong and is
@@ -36,7 +36,7 @@ pointer block saying where its substance already lives:
 ## Posting
 
 Posts are composed from the entries still marked `Post: none yet`, usually two or three related ones
-at a time — never one post per entry, which produces a stream of thin posts nobody wants to read.
+at a time. One post per entry produces a stream of thin posts nobody wants to read.
 
 ```bash
 grep -l 'Post: none yet' _blog/*.md

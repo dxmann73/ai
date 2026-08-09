@@ -6,7 +6,7 @@ How to talk to agents so they do the right thing — and how to tell when they h
 
 - Prompting and instruction design: what to state, what to leave implicit, what to never assume.
 - Context engineering: what belongs in the window, what belongs in a file, what belongs nowhere.
-- Instruction files (`AGENTS.md`, `CLAUDE.md`) as durable communication rather than one-off asks.
+- Instruction files (`AGENTS.md`, `CLAUDE.md`) as durable communication.
 - Specification: describing intent precisely enough to be executable, loosely enough to be useful.
 - Feedback loops: correcting an agent mid-task, and why some corrections don't stick.
 - Failure modes: overconfidence, silent scope drift, plausible-but-wrong, sycophancy.

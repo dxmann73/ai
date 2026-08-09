@@ -49,10 +49,8 @@ it. Both are taste, and both are the steps a pipeline under delivery pressure qu
 Bugs skip the first of those and enter the graph directly, carrying a severity. There is nothing to
 decide about whether the software should work.
 
-The loop back from the release branch is not an exception path. It is the normal way defects found
-during stabilization reach the main line, and it is the reason the diagram is a cycle rather than a
-line. Items on that return path carry a priority, and a high one lets them skip every step in
-between.
+The loop back from the release branch is the normal way defects found during stabilization reach the
+main line, and it is one of the reasons the diagram is a cycle rather than a line.
 
 ## Intake
 
@@ -96,8 +94,8 @@ source: a log scan turns up an exception, and that files a bug even when nothing
 and no one has complained. It gets investigated, triaged, and prioritized like any other.
 
 This is the case the severity scale handles badly on first reading. An exception with no user impact
-is outside both the MVP and the MLP, so it scores a P3, and P3 is correct — it is not urgent. But
-low priority is not the same as low interest, and the reason to investigate it anyway is that
+is outside both the MVP and the MLP, so it scores a P3, and P3 is correct — it is not urgent. The
+reason to investigate it anyway is that
 **severity measures current impact, not eventual cost**. An unexplained exception is a leading
 indicator: its real value is the probability that it becomes a P1 later, discovered now while it is
 cheap and while the change that caused it is still recent.
@@ -132,7 +130,7 @@ deliverable; the proposed fix is optional and secondary. An agent that cannot re
 report exactly that and stop, rather than producing something plausible.
 
 **Fast-tracking skips the queue, never the gates.** Cause and evidence are presented separately
-from the proposal so the human evaluates the problem rather than only the answer — and the fix
+from the proposal so the human evaluates the problem before the answer — and the fix
 itself still passes every pre-merge gate. "Fast track" naming a shorter path through review is how
 a P0 fix causes the next P0.
 
@@ -191,7 +189,7 @@ be written later.
 
 Ordinary agentic work against the ready queue: TDD, verification loops, review passes. A bead
 carries its own requirement, so there is nothing to plan on top of it — whatever an agent writes for
-itself inside a session is session scratch, not an artifact, and dies with the session.
+itself inside a session is session scratch and dies with the session.
 
 Work of any size reads the [SDD](artifacts.md#sdd--software-design-document) going in, because it is
 the account of the shape the work has to fit. Work large enough to change that shape extends it, and
@@ -276,10 +274,9 @@ None of these block anything. They run continuously against a line that is expec
 some of the time, and their output is beads.
 
 - **Whole-picture review.** A fan-out of agents looking at the codebase rather than any one diff:
-  cyclomatic complexity, naming coherence, security, architectural drift. Findings become beads,
-  not comments — otherwise they evaporate.
-- **Integration and e2e as signal.** Worth running on main anyway, not to gate but to shorten the
-  distance between a defect being introduced and being noticed. A failure here is a bead, and the
+  cyclomatic complexity, naming coherence, security, architectural drift. Findings become beads or evaporate.
+- **Integration and e2e as signal.** Worth running on main anyway, to shorten the distance between
+  a defect being introduced and being noticed. A failure here is a bead, and the
   useful thing it carries is the merge that caused it, which is cheap to identify now and expensive
   to identify at cutover.
 
@@ -303,8 +300,8 @@ attaches to the flow.
    [backport bead](artifacts.md#backport-bead) carrying both the error and the fix, entering through
    `_incoming/bugs/`. Beads outlive branches: they live in the graph and carry the fix as text.
 
-That last step is the load-bearing one, and it is worth being precise about what it is not. It is
-**not a cherry-pick**. Main has moved since the cutover, so the patch that worked on a frozen
+That last step is the load-bearing one, and it is **not a cherry-pick**. Main has moved since the
+cutover, so the patch that worked on a frozen
 branch may not apply, may apply and be wrong, or may collide with a change that arrived in between.
 Sending the defect back as a bead with a known cause and a known remedy lets it be re-derived in
 main's context and pass through the ordinary gates. Slower per fix, and it is the difference
@@ -360,9 +357,8 @@ the specification as a tier field on each user journey.
 
 The payoff is mechanical. P1 stops being an argument and becomes a set membership test: is this
 workflow on the MVP list? Anyone can check, including an agent, in the middle of an incident, under
-pressure, without waking anybody up. That is a mechanism rather than a discipline, and it is the
-first one in this document that resists drift by construction rather than by good intentions. For
-the fast track it means severity assignment is a lookup an agent can do, leaving the human only the
+pressure, without waking anybody up.
+For the fast track it means severity assignment is a lookup an agent can do, leaving the human only the
 cases the lookup does not settle.
 
 Drift does not disappear, it relocates. Scope creeps: over time everything becomes MVP, everything
@@ -428,7 +424,7 @@ from the feature's own gates are worked in the same iteration as the PRD beads t
 
 Closeout exists to make sure documentation is clean and up to date. It reads the original request
 and the PRD next to what was actually built. That gap, intent versus outcome, is the thing nobody
-has usually time for, and it is the whole reason to make it a bead.
+usually has time for, and it is the whole reason to make it a bead.
 It is written when the feature is decomposed, before any of the work starts, so the checklist exists
 before there is anything to check.
 

@@ -79,8 +79,8 @@ document that carried it.
 [release branch](releasing.md) it belongs to, travelling to main as a bead carrying both the error
 and the remedy.
 
-**Why it exists:** because it is not a cherry-pick. Main has moved since the cutover, so the fix is
-re-derived in main's context rather than transplanted. The bead is also the identity of the defect
+**Why it exists:** main has moved since the cutover, so the fix is re-derived in main's context
+rather than transplanted. The bead is also the identity of the defect
 across both lines — without it, the two fixes are unrelated work and nothing notices when only one
 of them lands.
 
@@ -139,8 +139,8 @@ what and who it is for, what it should and should not accomplish.
 answers *why does this product exist* rather than *what does it do*, and it is the thing every
 other document is downstream of.
 
-**Where it lives:** `VISION.md` in the repository root. Not filed under the docs/ tree so agent
-don't have to be told where to look.
+**Where it lives:** `VISION.md` in the repository root, above the docs/ tree so agents don't have to
+be told where to look.
 
 **Lifespan:** permanent, rarely revised. Frequent revision is a signal in itself: the vision
 changing is a much larger event than a requirement changing.
@@ -177,8 +177,9 @@ holds current intended behaviour.
 #### MVP and MLP definitions
 
 **What they are:** the **MVP** is the set of journeys without which the product is not a product.
-The **MLP** — minimum lovable product — is the MVP plus what makes the product worth choosing rather
-than merely usable. Both are subsets of the specification.
+The **MLP** — minimum lovable product — is the MVP plus what makes the product worth choosing.
+
+Both are subsets of the specification.
 
 **Why you need them:** Obviously they serve to prevent scope creep in the early phases.
 More importantly, they are what make severity a lookup rather than an argument.
@@ -190,7 +191,7 @@ including an agent, mid-incident, under pressure.
 those fields. Both forms exist and only one of them is written by hand. That ordering is the whole
 point — a curated list beside the journeys it names is a second place to update and therefore a
 place that goes stale, while a field cannot drift from the journey it sits in, and adding a journey
-forces someone to type a tier rather than to silently omit it.
+forces someone to type a tier.
 
 **Lifespan:** permanent and **operational**. This is the distinction that gets missed: these are not
 planning artifacts from launch, they are read during incidents, so they have to be current. A
@@ -223,8 +224,7 @@ layer down.
 
 **Lifespan:** permanent, continuously rewritten. Updated at closeout to describe the system as it
 now is, not appended to. Its size tracks the size of the system rather than the age of the project —
-that is the practical consequence of carrying no history, and it is what makes the growth question
-an ADR question rather than an SDD one.
+the practical consequence of carrying no history, and what makes growth an ADR question.
 
 **Relationship to ADRs:** they answer different questions and the distinction is worth holding
 firmly, because collapsing it is how both documents go bad. An **ADR** records a decision — we went
@@ -248,11 +248,6 @@ log, rather than a silence nobody can distinguish from a missing decision.
 Blocking pre-merge is the only moment this is cheap. The alternative is reconstructing the reasoning
 days later from an agent that was not there, which is the reconstruction the ADR exists to prevent.
 
-The weaker, standing check falls out of ADRs being attached to SDD sections: *which sections are
-justified by no ADR at all* is a query rather than an audit. It catches accumulated debt rather than
-the moment, and it is also what makes a skipped rollup visible, since rollup is the same link
-travelling the other way.
-
 ### ADR — Architecture Decision Record
 
 **What it is:** a record of the structure of the body of work and the principles it is designed
@@ -267,9 +262,9 @@ fit new work to it.
 **Lifespan:** permanent. Superseded, never deleted. This is the northern star — input and feedback
 for PRDs, implementation, maintenance loops, and reviews.
 
-**The corpus is never read whole.** ADR count grows with elapsed time rather than with the size of
-the system, so an unmanaged corpus is the artifact that eventually exceeds every context window.
-The corpus is not the working set, and two mechanisms separate them.
+**The corpus is never read whole.** ADR count grows with elapsed time, so an unmanaged corpus is the
+artifact that eventually exceeds every context window. The corpus is not the working set, and two
+mechanisms separate them.
 
 Each ADR is attached to the section of the [SDD](#sdd--software-design-document) it explains, so
 *why is it like this* is a link from the design rather than a search across a decade. Superseded
@@ -281,7 +276,7 @@ were never overturned — they just settled. So a set of settled ADRs is periodi
 the rule they arrived at moves into the SDD as design, where it belongs once nobody argues about it
 any more, and the ADRs are marked settled and leave the working set. They are not edited and not
 deleted; a record that is rewritten has stopped being a record. What rollup changes is what gets
-read by default, not what exists.
+read by default.
 
 Rollup is a deliberate act that nothing forces, which is its weak point and worth naming: a corpus
 that never gets rolled up degrades slowly and silently, and the only symptom is agents reasoning
@@ -306,8 +301,8 @@ accurate rather than aspirational: it is the source these are generated from.
 **Unit and component tests — the executable design.** Their sibling is the
 [SDD](#sdd--software-design-document), not the specification. They describe a module's contracts and
 invariants, so they are rewritten when the design is rewritten and deleted when the module is. A
-unit test that survives a redesign untouched is suspicious rather than reassuring — either the
-design did not really change, or the test was asserting something other than what it claimed.
+unit test that survives a redesign untouched is suspicious — either the design did not really
+change, or the test was asserting something other than what it claimed.
 
 **Regression tests — a record class.** A test written from a bug reproduction is neither promised
 behaviour nor chosen design; it is a failure that must not recur. Append-only, and the only test
@@ -332,9 +327,8 @@ rather than present intent.
 **What it is:** what is intended, and in what order.
 
 **Why you need it:** it picks the cutover point. This is the one place in the lifecycle where the
-roadmap is load-bearing rather than informational — it decides when a
-[release branch](releasing.md) is cut, and it decides it on intent rather than on the state of the
-build.
+roadmap is load-bearing — it decides when a [release branch](releasing.md) is cut, and it decides it
+on intent rather than on the state of the build.
 
 **Lifespan:** permanent, continuously revised.
 
@@ -401,12 +395,10 @@ output looks exactly like the output from reading all of it.
 
 Beads are the exception to the transient/permanent split, because they are not a document at all.
 Task state, sequencing, dependencies, and what is ready to work on live in the graph and nowhere
-else. Nothing deletes them; closing is not deleting, and the graph keeps its own history.
+else. Nothing deletes them (closing is not deleting) and the graph keeps its own history.
 
-The split is the entire reason for adopting the tool
-([`adoption/journey/beads-adoption.md`](../adoption/journey/beads-adoption.md)): task state was
-always the part that was safe to delete, reasoning never was, and the failure was that both lived
-in the same file.
+The split is the reason for
+ ([adopting beads`](../adoption/journey/beads-adoption.md)).
 
 ## Lifespans at a glance
 
@@ -451,8 +443,8 @@ never do.
 ## Open questions
 
 - One file per journey assumes everything the product promises is a journey. Performance, security,
-  and the other cross-cutting properties are not, and they belong to the specification rather than
-  the SDD because they are promises rather than design. Where do they live, and what tiers them?
+  and the other cross-cutting properties are not, and they belong to the specification because they
+  are promises rather than design. Where do they live, and what tiers them?
 - If unit tests are the executable design, a redesign rewrites them — so during that rewrite the
   only thing asserting that behaviour did not change is the journey suite. Is that enough, or does a
   redesign need something the design tests cannot provide by construction?

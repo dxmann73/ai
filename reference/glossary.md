@@ -16,8 +16,7 @@ steer, and verify. Contrast with the SDLC. See [`../aglc/`](../aglc/).
 ## Agent
 
 An LLM given tools, a goal, and the ability to loop — acting, observing results, and acting again
-without a human turn in between. The loop is the distinguishing feature; a model that only answers
-is not an agent.
+without a human turn in between. The loop is the distinguishing feature.
 
 ## Harness
 
@@ -34,7 +33,6 @@ loaded.
 ## Instruction file
 
 A durable, version-controlled file of standing directives for an agent (`AGENTS.md`, `CLAUDE.md`).
-Communication that persists across sessions rather than being restated each time.
 
 ## Eval
 

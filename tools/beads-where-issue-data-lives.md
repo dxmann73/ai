@@ -20,8 +20,7 @@ version control underneath the repository's. Cross-machine sync rides the git re
 
 There is no "one database for every project" mode. The nearest-looking option,
 `bd init --shared-server`, shares a Dolt *server process* at `~/.beads/shared-server/` while each
-project keeps an isolated database named after its issue prefix. That is process consolidation, not
-data consolidation. Centralization of the data is simply not on the menu.
+project keeps an isolated database named after its issue prefix.
 
 The CLI is installed once per machine. Upstream is explicit that you do not clone the beads
 repository into your project.
@@ -152,8 +151,8 @@ They carry the relationship without copying the data.
 ## The tradeoff being made
 
 In-repo tracking trades browsable, greppable, reviewable-in-a-diff markdown for a database that
-needs a CLI to read. That is a genuine loss and it is not fully recoverable — the export helps
-viewers and interchange, but it is not the artifact of record.
+needs a CLI to read. That is a genuine loss and it is only partly recoverable — the export helps
+viewers and interchange, while the database stays the artifact of record.
 
 The offset is only partial, and it works by moving *reasoning* somewhere durable and human-readable
 — design documents and ADRs — so that only the *task state* lives in the database. The split holds
