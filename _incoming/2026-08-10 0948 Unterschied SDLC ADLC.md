@@ -1,0 +1,2 @@
+Wir bilden eigentlich den SDLC fast 1:1 ab, halt eben nur mit Agenten. Da ändert sich auch nicht großartig was dran.
+Es wäre wirklich die Frage, die man rausarbeiten müsste: Wie sich da überhaupt ändert? Und das heißt, das Problem, wenn man das mit dem Agenten zum Funktionieren bringen will, ist in erster Linie Alignment. 

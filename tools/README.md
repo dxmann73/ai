@@ -1,20 +1,33 @@
 # Tools
 
-The concrete landscape: models, harnesses, protocols, and the machinery around them.
+The landscape of tools moves very fast. This page serves as a quick overview.
+Tools that have been adopted or tested get separate pages.
 
-Fast-moving. Notes here should be dated, since half of them will be wrong within a year.
+## Coding Agents
 
-A note here describes what a tool is and how it behaves. Why one was picked and what rolling it out
-cost belongs in [`adoption/journey/`](../adoption/journey/), which links back here.
+The harness driving your agent with logic and system prompt.
 
-## Scope
+- Claude Code, Codex: vendor specific frontier models
+- [Cursor CLI](https://cursor.com/cli), specifically Composer 2
+- Grok build (not tried yet)
+- [Pi](https://pi.dev/)
+- [OpenCode](https://opencode.ai/)
 
-- Models: capabilities, tradeoffs, and how to choose between them for a given job.
-- Harnesses and agent runtimes: CLIs, IDE integrations, background and scheduled agents.
-- Protocols and integration: MCP, tool definitions, sandboxing, permissions.
-- Evals: measuring whether an agent setup actually works, and why most measurement is bad.
-- Skills, subagents, and workflow composition.
-- Local infrastructure: how a personal setup is wired together and why.
+## Terminal multiplexers
+
+If you don't want to manage several terminal windows, you can use a multiplexer.
+
+- Tmux (keeps terminals alive), zellij
+- Cmux
+
+## Agent runtimes / agent harness control surface
+
+Apps that run multiple agents, display them in a nice UI and let you group them into projects/categories.
+Some of them solve the problem to send clipboard content to agents running on another machines.
+
+- Codex Desktop, Claude Desktop, Cursor Glass, Conductor, emdash, superset
+- T3 Code
+- [herdr](./herdr.md): mouse-first, agent-aware multiplexer; one workspace per project
 
 ## Notes
 
@@ -22,10 +35,3 @@ cost belongs in [`adoption/journey/`](../adoption/journey/), which links back he
   (2026-08-08) — storage model, routing, hydration, and the four ways to reference work in another
   repository. The adoption side is in
   [`adoption/journey/beads-adoption.md`](../adoption/journey/beads-adoption.md).
-
-## Open questions
-
-- What separates a harness that compounds over time from one that just wraps an API?
-- How much of an agent's effectiveness is the model versus the scaffolding around it?
-- What is worth automating permanently versus asking for ad hoc?
-- When does adding a tool make an agent worse?

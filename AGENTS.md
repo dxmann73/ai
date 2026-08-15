@@ -2,8 +2,8 @@
 
 ## What this repo is
 
-A personal knowledge base of Markdown notes about AI agents: communication, the agentic
-development life cycle, business adoption, and societal impact. Everything here is **prose**.
+A knowledge base of Markdown notes about AI agents: communication, the agentic
+development life cycle, business adoption, and societal impact.
 
 ## Layout
 
@@ -20,45 +20,33 @@ Each topic folder has a `README.md` index listing its notes.
 
 When asked to process `_incoming/`:
 
-1. Read the piece and decide which topic note it belongs to.
-2. Integrate the substance into that note — merge with existing text, do not just append a blob.
-3. Update the topic folder's `README.md` index if a new file was created.
-4. Delete the incoming piece with `git rm`. Its substance now lives in the topic note, and git holds
-   the original. A piece that turns out to be worthless is deleted the same way — say so in the
-   commit message.
-5. Then run the posting check below. Always ask; never publish unprompted.
+1. Read the piece and decide which topic notes it belongs to.
+1. Integrate the substance into that notes. Merge with existing text, do not just append a blob.
+1. Update the topic folder's `README.md` index if a new file was created.
+1. Gate: The human will rewrite and rephrase.
+1. When everything has been integrated, run the posting check below.
+1. Delete the incoming piece.
 
-Nothing is kept for the sake of provenance. A second copy of an absorbed piece is a document that
-can go stale against the note that superseded it, and an agent that finds it will believe it. The
-same reasoning applies to anything already written down here that turns out to be wrong: delete it,
-do not annotate it. `git log --diff-filter=D` is where it went.
+## Posting check
 
-## Posting workflow
+While working on this repo, we try to gather material for website posts. The website at `../website`
+is the publishing target. `_blog/` contains drafts and raw material.
 
-The website at `../website` is the publishing target. `_blog/` is staging: drafts and raw material,
-never an archive.
+Therefore, every time an item is processed from `_incoming`, we should either:
 
-Blog posts are **composed from the pool of unpublished `_blog/` entries** — not necessarily one post
-per idea, which would produce a stream of thin posts nobody wants to read.
+- add to an existing draft when it fits there, with date/time and a gist of what we did
+- create a new draft with a summary of the changes if there is no fitting draft
 
-1. List the unpublished pool: `grep -l 'Post: none yet' _blog/*.md`.
-2. Judge whether a theme has accumulated enough substance for one coherent post. Two or three
-   related entries is usually the threshold; one entry rarely is. Say so plainly when the answer is
-   no — "nothing publishable yet" is the expected outcome most of the time.
-3. Report the recommendation to the author and let them decide. Do not start writing unasked.
+Draft format is in `_blog/README.md`.
 
-When they say go:
+Then, judge whether a theme has accumulated enough substance for one coherent post.
 
-1. Write the post directly into `../website/src/content/posts/en/<slug>.md`, following that repo's
-   `AGENTS.md` — its frontmatter schema, its EN-always rule, `draft: true` until it is finished.
-   Do not create a DE copy; the website's fallback handles a missing translation.
-2. The post is prose written fresh in the author's voice, with the staged entries and the topic note
-   as raw material.
-3. When the post is finished and no longer a draft, delete every `_blog/` entry it drew on.
+Ask the human about it. When they say go:
 
-The website holds the canonical published post. Never maintain a second copy of a post here — that
-only creates two versions to keep in sync, which is the same failure as keeping an absorbed incoming
-piece.
+1. Create a post in the website repo, following that repo's rules.
+1. Use prose written fresh in the author's voice, with the drafts as raw material.
+1. The human will then iterate on the post.
+1. When the post is finished and no longer a draft, delete every `_blog/` entry it drew on.
 
 An entry that never becomes a post is deleted when it stops being worth writing about. `_blog/`
 trends toward empty; a growing pool means the decision is being deferred.
@@ -77,6 +65,6 @@ trends toward empty; a growing pool means the decision is being deferred.
 
 ## Editing rules
 
-- Preserve the author's voice. This is a personal notebook, not documentation.
+- Preserve the author's voice.
 - Prefer editing an existing note over creating a near-duplicate one.
 - Keep edits focused; do not reorganize folders unless asked.
