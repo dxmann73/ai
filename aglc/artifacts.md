@@ -5,6 +5,16 @@ tags: [aglc, artifacts]
 
 # Artifacts
 
+TODO neue Artefakte:
+- proof of work als Video oder Screenshots
+
+- BDD Tests und UI Tests als Teil der PRDs
+- Architekturplan als dauerhaftes Artefakt, welches interaktiv sein kann
+- Architekturtests als deterministische Variante (ArchUnit?)
+
+Spezifikation: nicht im Sinne von „der User sieht die folgenden drei Felder, das erste Feld ist ein Pflichtfeld, der User klickt auf den OK-Button, der Dialog schließt sich“ (es ist sichtbar ein XY). Das ist nicht handelbar, zu beweglich, kann nicht aufrecht erhalten werden, muss immer in sync gehalten werden, der Code ist sowieso die Wahrheit und kann und wird abweichen.
+Was ich damit meine ist eine Liste/Beschreibung der Features, die ich vom Produkt erwarte, also "User sind in der Lage, dies oder das zu tun". Das ist, was ich mit Spezifikation meine. Sowohl Uncle Bob als auch Matt Pocock stimmen darin überein (und ich stimme dem ausdrücklich zu), dass die Spezifikationen wie im ersten Sinne wenig bis überhaupt keinen Sinn machen und auch nie gemacht haben, als das wass wir früher Grob- und Feinkonzept nannten und was regelmäßig den ersten Feindkontakt nicht überlebt hat (TODO Verlinkung Sun Tsu).
+
 ## TLDR
 
 Describes the documents the aglc produces, their purpose, content and lifecycle.

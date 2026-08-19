@@ -6,12 +6,16 @@ Tools that have been adopted or tested get separate pages.
 ## Coding Agents
 
 The harness driving your agent with logic and system prompt.
+[Differences explained in a nutshell](https://youtu.be/dLhcLqoff6k?t=620)
 
-- Claude Code, Codex: vendor specific frontier models
+- Claude Code: vendor specific models locked to subscription (or pay API prices)
+  Richer features that OpenCode et al, there seems to be a focus on the CLI
+- Codex: vendor specific frontier models + hackable custom model endpoint
+  Richer features than OpenCode, features added seem to be focused on the App (with ChatGPT folded in)
 - [Cursor CLI](https://cursor.com/cli), specifically Composer 2
 - Grok build (not tried yet)
 - [Pi](https://pi.dev/)
-- [OpenCode](https://opencode.ai/)
+- [OpenCode](https://opencode.ai/): No subsidization via subscription because different harness
 
 ## Terminal multiplexers
 
@@ -22,12 +26,13 @@ If you don't want to manage several terminal windows, you can use a multiplexer.
 
 ## Agent runtimes / agent harness control surface
 
-Apps that run multiple agents, display them in a nice UI and let you group them into projects/categories.
-Some of them solve the problem to send clipboard content to agents running on another machines.
+How to run multiple agents, display them in a nice UI, group them into projects/categories.
+Use them as if on your local box, i.e. send clipboard content, no network issues (*cough* ssh).
 
-- Codex Desktop, Claude Desktop, Cursor Glass, Conductor, emdash, superset
-- T3 Code
+- [T3 Code](https://t3.codes/): The open-source control plane for coding agents.
+  [Github](https://github.com/pingdotgg/t3code)
 - [herdr](./herdr.md): mouse-first, agent-aware multiplexer; one workspace per project
+- Proprietary/closed source: Codex Desktop, Claude Desktop, Cursor Glass, Conductor, emdash, ...
 
 ## Notes
 

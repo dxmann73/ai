@@ -21,6 +21,8 @@ That means you are well advised to hedge complexity
 - reduce complexity of requirements => feeds back into the PDLC: "Let's do this another way"
 - break down complex endeavours into easy steps
 
+Use layering / [indirection](https://en.wikipedia.org/wiki/Fundamental_theorem_of_software_engineering)
+
 ## Taste / Foresight
 
 What gets ever more important is the question of [taste, or call it foresight](https://www.youtube.com/watch?v=Wm7tsiJ1nIo&t=872s). What does that mean?

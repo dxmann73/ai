@@ -12,7 +12,13 @@ Deciding what goes into the window, and what stays out — the practical craft b
 
 TODO
 matt pocock has resources on this https://www.youtube.com/watch?v=nQwJVHCtDDY&t=93s
-david ondrej with that dude here who claims he coined the terms https://www.youtube.com/watch?v=xgkjtF89-44 
+david ondrej with that dude here who claims he coined the term https://www.youtube.com/watch?v=xgkjtF89-44 
+
+## Trajectory / Alignment
+
+Context window auch deswegen klein schneiden, damit mehr Regeln und Guidelines reinpassen, die zu den Zielen passen.
+Ein großes Dokument mit vielen Zielen (und teils Zielkonflikten) wird zu Problemen führen
+TODO Verlinkung 2026-08-21
 
 ## Feed exactly the context the agents need
 
@@ -26,7 +32,7 @@ Everything in that list is a cost as well as a benefit: it competes for attentio
 else in the window. The discipline is subtraction as much as addition — remove stale intent rather
 than override it.
 
-## Proposal: Fine grained ctx management
+## Proposal: 1kpx fine grained ctx management
 
 For adoption in companies and also privately.
 No matter where the agent lives, whether Slack or terminal, it would be optimal to plug in the

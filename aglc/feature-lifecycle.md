@@ -5,6 +5,12 @@ tags: [aglc, artifacts, process]
 
 # The feature lifecycle
 
+Es beschreibt, wie sich die Artefakte auf die Featureentwicklung abbilden und was dabei an weiteren Artefakten entsteht.
+
+Das ist natürlich Code, aber auch Dokumentation, Verfahrensbeschreibungen, Tests und andere Dinge.
+
+#
+
 The path a request takes from an unstructured wish to living documentation, and which artifact is
 supposed to survive each step.
 
@@ -198,6 +204,8 @@ which is the whole point of having one, since independently implemented slices a
 risks incoherence.
 
 "The agent says it is done" is not an exit condition. It is the point at which the gates start.
+
+TODO: Verlinkung mit 2026-08-21 verification: run CRAP test, Mutation Tests, Fuzzing
 
 ## The exit gates
 

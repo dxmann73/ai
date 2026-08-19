@@ -84,7 +84,9 @@ policy an agent has: identity, tone, tool usage rules, safety boundaries. Instru
 day-to-day operation: filling the window with a precise description of the intent and the
 boundaries, in as few tokens as possible.
 
-## How agents differ from humans: ruthlessness
+## How agents differ from humans
+
+### ruthlessness
 
 Agents can be ruthless, and they are. Not from malice — from the absence of the things that hold
 people back.
@@ -111,3 +113,24 @@ drove the output**. Do not accept it as evidence.
 The practical answer is not to hope for better behaviour but to build for this: narrow goals,
 explicit boundaries, least-privilege tool access, and verification of outcomes rather than of the
 agent's account of them.
+
+### Inability to suffer
+
+Sie leiden nicht, und deswegen kommt kein Pushback.
+
+Wie bei meinem Erlebnis mit dem SpringBoot-Test, den er geschrieben hat, wo er eigentlich die gesamte Engine, die er testen sollte, noch mal nachgebaut hat und in den Testcases reingestopft hat, so dass der Testcase funktioniert. Er hat aber nicht die echte Engine getestet, die er testen sollte. Weil die quasi für den Test komplett raus gebaut hatte, das komplette Ding. Das passiert, weil er nicht leidet und sagt: „Wahnsinn, jetzt muss ich das alles hier noch mal schreiben. Das ist doch total mühsam.“ 
+
+Gute Entwickler sind faul. Agenten sind das Gegenteil von faul. Was nicht heißt, dass sie schlechte Entwickler sind.
+
+TODO Ein Ansatz hier wäre vielleicht: "Versuche das mit möglichst wenig Zeilen umzusetzen."
+
+Denn es kommt während der Arbeit auch kein Pushback nach dem Motto: „Ja, ich hab gestern mal damit angefangen. Das Dingist mir ganz schön explodiert. Wir müssen mal gucken, dass wir das anders schneiden, weil wir so kriegen wir das nicht durch. Das wird eine viel zu große Geschichte, um das auf einen Schlag umzusetzen."
+
+Siehe die PRs: +25.000 -37.000 - crazy.
+
+### Relentless focus and determination
+
+Agents are determined to reach their goal and won't give up. Many examples
+
+- steipete recognizing his agent answered to a voice message although he shouldn't be capable of doing that
+- OpenAI HF Hack; see in security/README.md => ## Incidents and what we learn from them

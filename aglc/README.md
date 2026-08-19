@@ -1,7 +1,13 @@
 # Agentic Development Life Cycle (AGLC)
 
-What replaces the SDLC when most of the code is written by agents and the human's job shifts from
-authoring to specifying, steering, and verifying.
+Beschreibt die Anwendung der genannten Prinzipien auf den Entwicklungsprozess, und zwar nicht nur den Softwareentwicklungsprozess, sondern den gesamten Produktentwicklungsprozess.
+
+Die Grundidee ist, die Agenten dort einzusetzen, wo sie am effizientesten sind, und das ist bei der Generierung von Code und beim Zusammenfassen und Aktualisieren vieler verschiedener disparater Quellen, Dokumentation, Tests sowie beim Erzeugen von Übersichten, Proof of Work und anderen unterstützenden Artefakten.
+[Matt Pokock und Uncle Bob.](https://www.youtube.com/watch?v=zcLPGC-tvgk&t=583s)
+
+## Why have a process and not just vibe engineer
+
+[Agents are able to code themselves into a corner](https://www.youtube.com/watch?v=zcLPGC-tvgk&t=675s)
 
 ## Scope
 

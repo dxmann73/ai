@@ -15,6 +15,7 @@ See [this article](https://www.0xkato.xyz/how-llms-actually-work) on how LLMs ac
 - Attention has one big cost. In full attention, each token compares against all the tokens it is allowed to see,
   so doubling the prompt length roughly quadruples the work. This is why long prompts are expensive to run.
 - The model does not just pick the highest-probability token every time, depending on decoding settings like temperature
+- [reasoning traces](https://www.wired.com/story/a-new-trick-reveals-ai-models-inner-thoughts)
 
 ## First principles
 

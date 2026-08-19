@@ -6,6 +6,10 @@ title: "AI — Automation"
 
 # Automation
 
+https://hbr.org/2025/06/what-gets-measured-ai-will-automate
+> anything that can be measured will be automated.
+And it should be.
+
 Humans in the loop create a lot of friction. But agents tend to forget what they are told,
 first and foremost "after every major task, check everything is still correct".
 There is a lot of movement on this at the moment. Some of it involving loops.
@@ -52,5 +56,9 @@ Pair this with an [FSM](https://blog.davemo.com/posts/2026-02-14-deterministic-c
 
 https://medium.com/orgcraft/streamlining-the-product-development-lifecycle-with-generative-ai-agents-b006c07f02be
 https://dust.tt/
+
+## Software Factories
+
+https://techcrunch.com/2026/08/18/warps-new-system-is-an-out-of-the-box-software-factory-for-ai-development/
 
 

@@ -44,3 +44,8 @@ This is taken from the video of [Kun Chen with David Ondrej](https://www.youtube
   stack subscriptions across vendors
 - Local / open-source models: Resource issue. A local model would compete with everything else
   cloud-hosted open models don't save enough to be worth switching (for individuals)
+
+## Gisting
+
+https://shopify.engineering/gisting
+Means compressing the system prompt into the model. Only applies if you RL train your own models
