@@ -1,16 +1,37 @@
+---
+status: draft
+tags: [concepts, context]
+---
+
 # Context Management
 
-see first principles; what do we mean by that
-Dumb zone / Smart zone
-Feed exactly the context the agents need (from AGENTS.md to source code/plan)
+Deciding what goes into the window, and what stays out — the practical craft behind
+"context decides outcomes" (see [first principles](first-principles.md)).
 
-## Fine grained ctx management
+## Dumb zone / Smart zone
 
-Mille Plateaux indeed. Für die Adoption in Unternehmen (und auch privat, kein Unterschied).
+TODO
+matt pocock has resources on this https://www.youtube.com/watch?v=nQwJVHCtDDY&t=93s
+david ondrej with that dude here who claims he coined the terms https://www.youtube.com/watch?v=xgkjtF89-44 
 
-Egal wo der Agent lebt, ob Slack oder terminal, optimal wäre es, die richtigen Sachen on demand einzustöpseln
+## Feed exactly the context the agents need
 
-Da spielt das Plateau eine Rolle: Welchen Kontext bekommt der Agent?
+Not more, not less. In practice this spans a range of granularities:
 
-Zum Beispiel hätte ich einen Agenten für die Produkt A. Der hätte das Repo von sich und ein paar
-Schnittstellenbeschreibungen zu Produkt B. Man müsste diesem Agenten dann bestimmte Scheibchen von B zuweisen.
+- **Standing policy** — `AGENTS.md` / `CLAUDE.md`: conventions, boundaries, how this repo works.
+- **Task framing** — the goal, the acceptance criteria, the plan.
+- **Working material** — the source files, interface descriptions, test output actually in play.
+
+Everything in that list is a cost as well as a benefit: it competes for attention with everything
+else in the window. The discipline is subtraction as much as addition — remove stale intent rather
+than override it.
+
+## Proposal: Fine grained ctx management
+
+For adoption in companies and also privately.
+No matter where the agent lives, whether Slack or terminal, it would be optimal to plug in the
+right things on demand.
+For example, I would have an agent for product A. It would have its own repo and a few interface
+descriptions for product B. You would then have to assign certain slices of B to this agent. The
+agent for A should see the interfaces of B, but not its whole repo — otherwise it fills its window
+with material that only makes it slower and worse.

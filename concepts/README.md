@@ -11,6 +11,11 @@ and why agents are ruthless.
 There is a lot of models with different capabilities and costs. Route tasks to
 their appropriate models/harnesses. [Details](models-pricing-routing.md)
 
+## Context Management
+
+Dumb zone vs. smart zone, feeding agents exactly what they need, and slicing context
+fine-grained per agent. [Details](context.md)
+
 ## First principles
 
 What follows from the concepts above, boiled down: context is the deciding factor, treat agents as
