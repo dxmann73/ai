@@ -29,7 +29,8 @@ If you don't want to manage several terminal windows, you can use a multiplexer.
 How to run multiple agents, display them in a nice UI, group them into projects/categories.
 Use them as if on your local box, i.e. send clipboard content, no network issues (*cough* ssh).
 
-- [T3 Code](https://t3.codes/): The open-source control plane for coding agents.
+- [T3 Code](./t3code.md): open-source control plane for coding agents; client/server, several
+  machines in one window, headless servers. [Site](https://t3.codes/) ·
   [Github](https://github.com/pingdotgg/t3code)
 - [herdr](./herdr.md): mouse-first, agent-aware multiplexer; one workspace per project
 - Proprietary/closed source: Codex Desktop, Claude Desktop, Cursor Glass, Conductor, emdash, ...
