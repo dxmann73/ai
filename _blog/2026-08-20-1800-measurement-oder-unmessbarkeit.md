@@ -1,0 +1,62 @@
+# Measurement oder Unmessbarkeit
+
+> Drawn from [_journey/2026-08-20.md](../_journey/2026-08-20.md).
+>
+> Post: none yet.
+
+## TLDR
+
+Notizen zu Christian Catalini. Fokus auf die Themen: Was bedeutet Verification? Wie können
+Unternehmen ihre Werte schützen? Was ist die Überlebensstrategie im Angesicht der Tatsache, dass die
+Konkurrenz KI einsetzen und damit Effizienzgewinne erzielen wird.
+
+Aus
+[Economic first principles for a messy AI world](https://catalini.substack.com/i/210265925/economic-first-principles-for-a-messy-ai-world)
+
+> Of course, some domains and problems are harder to codify than others: this is the land of unknown
+> unknowns where assigning probabilities to events is extremely difficult, if not impossible.
+> Financial markets, frontier R&D, and domains where the right answer doesn’t matter because what we
+> care about is that others converge with us on the same result: think “status games”, and any good
+> or service where social consensus is the product, from art to cryptocurrency. ... the resulting
+> first principle is basic: you can either compete on advancing measurement, or you can double down
+> on domains that escape measurement to begin with.
+
+## Content
+
+Mehrere Artikel im Umfeld von Christian Catalini, gefunden auf X und auch über den AI Future
+Newsletter.
+
+[Some Simple Economics of AGI](https://arxiv.org/html/2602.20946v2)
+[Surviving the AI Moatpocalypse](https://catalini.substack.com/p/surviving-the-ai-moatpocalypse)
+[Economic First Principles for a Messy AI World](https://catalini.substack.com/i/210265925/economic-first-principles-for-a-messy-ai-world)
+[Nadella’s Test: What’s Left When The AI Model Is Pulled?](https://catalini.substack.com/i/203116007/the-only-loop-that-compounds)
+[What Gets Measured, AI Will Automate](https://hbr.org/2025/06/what-gets-measured-ai-will-automate)
+
+## Erste Erkenntnis, für die Unternehmen
+
+Alles, was sich messen lässt, bzw. was sich auf "einfache" Weise -oder sogar automatisiert-
+verifizieren lässt, wird früher oder später durch KI übernommen, entweder im eigenen Unternehmen,
+oder von der Konkurrenz. Das heißt: Unternehmen sollte in alle Prozesse, wo dies möglich ist, KI
+einbinden, und alle anderen Prozesse als ihre Kernidentität und IP schützen und bewahren. Das
+schließt den Aufbau von Fachpersonal ausdrücklich ein.
+
+Unternehmen, die sowieso mit Prozessen beschäftigt sind, deren Outcomes sehr schwer messbar bzw.
+verifizierbar sind (wie zum Beispiel dort, wo menschliche Interaktionen erforderlich und wertvoll
+sind), sind zunächst nicht betroffen. Beispiele sind Pflegedienste, Psychologie, Eventagenturen.
+
+Die Unternehmen, deren Prozesse einfach zu verifizieren sind, zum Beispiel Unternehmen, die viel mit
+Zahlen zu tun haben, viele Routine-Tätigkeiten haben, Massendatenverarbeitung und so weiter), müssen
+sich sehr schnell überlegen, ob sie eine Stufe nach oben steigen, zum Beispiel mandantenfähig werden
+oder ihre Expertise mit weiteren Angeboten ergänzen. Stripe und Ramp werden hier als
+Positivbeispiele genannt. Denkrichtung wäre hier Softwarehäuser oder Steuerkanzleien ("math and code
+fell first").
+
+## Zweite Erkenntnis für die persönliche Ausrichtung
+
+Frage: Wo bewegt man sich als Experte hin? Entweder man wird jemand, der in der Verification und,
+ich würde sagen, in der Kommunikation gut beitragen kann, oder man bewegt sich in einen Bereich
+hinein, der fachlich (im Moment noch) schlecht zu verifizieren ist.
+
+Alles andere wird früher oder später entweder von den Frontier Labs oder von sich entsprechend
+schnell bewegenden Firmen in KI-Workflows übersetzt. ("Compete on measurement or move to the
+unmeasurable realm").
