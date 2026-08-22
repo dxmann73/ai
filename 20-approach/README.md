@@ -1,5 +1,7 @@
 # Outsourcing to agents
 
+AI Adoption means we are basically outsourcing to a non-human entity.
+
 Basically the pipeline is
 
 humans+agents create intent (communication is key here)

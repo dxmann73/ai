@@ -2,8 +2,8 @@
 
 Adoption beyond the workplace: schools, labor, policy, and public understanding.
 
-The public aspect of [`adoption/`](../). Organizations are in [`business/`](../business/), my own
-path in [`journey/`](../journey/).
+The public aspect of [`10-adoption/`](../README.md). Organizations are in
+[`business/`](../business/), my own path is in [`_journey/`](../../_journey/README.md).
 
 ## Scope
 

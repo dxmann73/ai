@@ -1,17 +1,17 @@
 # Tools
 
-The landscape of tools moves very fast. This page serves as a quick overview.
-Tools that have been adopted or tested get separate pages.
+The landscape of tools moves very fast. This page serves as a quick overview. Tools that have been
+adopted or tested get separate pages.
 
 ## Coding Agents
 
 The harness driving your agent with logic and system prompt.
 [Differences explained in a nutshell](https://youtu.be/dLhcLqoff6k?t=620)
 
-- Claude Code: vendor specific models locked to subscription (or pay API prices)
-  Richer features that OpenCode et al, there seems to be a focus on the CLI
-- Codex: vendor specific frontier models + hackable custom model endpoint
-  Richer features than OpenCode, features added seem to be focused on the App (with ChatGPT folded in)
+- Claude Code: vendor specific models locked to subscription (or pay API prices) Richer features
+  that OpenCode et al, there seems to be a focus on the CLI
+- Codex: vendor specific frontier models + hackable custom model endpoint Richer features than
+  OpenCode, features added seem to be focused on the App (with ChatGPT folded in)
 - [Cursor CLI](https://cursor.com/cli), specifically Composer 2
 - Grok build (not tried yet)
 - [Pi](https://pi.dev/)
@@ -26,8 +26,8 @@ If you don't want to manage several terminal windows, you can use a multiplexer.
 
 ## Agent runtimes / agent harness control surface
 
-How to run multiple agents, display them in a nice UI, group them into projects/categories.
-Use them as if on your local box, i.e. send clipboard content, no network issues (*cough* ssh).
+How to run multiple agents, display them in a nice UI, group them into projects/categories. Use them
+as if on your local box, i.e. send clipboard content, no network issues (_cough_ ssh).
 
 - [T3 Code](./t3code.md): open-source control plane for coding agents; client/server, several
   machines in one window, headless servers. [Site](https://t3.codes/) ·
@@ -40,4 +40,4 @@ Use them as if on your local box, i.e. send clipboard content, no network issues
 - [Beads: where issue data lives when work spans repositories](./beads-where-issue-data-lives.md)
   (2026-08-08) — storage model, routing, hydration, and the four ways to reference work in another
   repository. The adoption side is in
-  [`adoption/journey/beads-adoption.md`](../adoption/journey/beads-adoption.md).
+  [`_incoming/2026-08-07 1130 adoption-journey.md`](../_incoming/2026-08-07%201130%20adoption-journey.md).

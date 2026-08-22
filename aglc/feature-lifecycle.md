@@ -5,11 +5,12 @@ tags: [aglc, artifacts, process]
 
 # The feature lifecycle
 
-Es beschreibt, wie sich die Artefakte auf die Featureentwicklung abbilden und was dabei an weiteren Artefakten entsteht.
+Es beschreibt, wie sich die Artefakte auf die Featureentwicklung abbilden und was dabei an weiteren
+Artefakten entsteht.
 
 Das ist natürlich Code, aber auch Dokumentation, Verfahrensbeschreibungen, Tests und andere Dinge.
 
-#
+## Summary
 
 The path a request takes from an unstructured wish to living documentation, and which artifact is
 supposed to survive each step.
@@ -40,16 +41,15 @@ _incoming/bugs/ ────────────────────→ 
 ```
 
 What comes out the far end is everything that describes the system: the
-[vision](artifacts.md#vision-document), the
-[specification](artifacts.md#specification-and-user-journeys), the
+[vision](artifacts.md#vision-document), the [specification](artifacts.md#product-specification), the
 [SDD](artifacts.md#sdd--software-design-document), the
 [ADRs](artifacts.md#adr--architecture-decision-record), and the
 [operations material](artifacts.md#operations-manual). What is consumed is everything that described
-the *change*: the request, the requirement, the review finding. The full catalogue is in
+the _change_: the request, the requirement, the review finding. The full catalogue is in
 [`artifacts.md`](artifacts.md).
 
 Gates cluster in two places: one at intake, a dense band in front of the merge queue. They are the
-same question asked twice — *should this exist* before the work, *is this the thing we meant* after
+same question asked twice — _should this exist_ before the work, _is this the thing we meant_ after
 it. Both are taste, and both are the steps a pipeline under delivery pressure quietly drops first.
 
 Bugs skip the first of those and enter the graph directly, carrying a severity. There is nothing to
@@ -64,7 +64,7 @@ Everything unstructured lands in a project-level `_incoming/` folder. No format 
 argument at the door — the cost of adding must be near zero or people stop adding.
 
 This is Steve Yegge's **wish factory** — customers and support get something to talk to, and their
-wishes enter the loop rather than dying in a channel (*The Shape of Things to Come*, part one, on
+wishes enter the loop rather than dying in a channel (_The Shape of Things to Come_, part one, on
 `yegge.ai` — **[source needed]** for the direct URL). "Customer" here reads broadly: a paying user,
 a project manager, an engineer who noticed something on the way past.
 
@@ -74,16 +74,16 @@ The folder trends toward empty. It is a queue, not an archive.
 
 One door, three slots, because the three kinds of arrival need different first questions:
 
-| Lane | What it holds | First question |
-| --- | --- | --- |
-| `bugs/` | [Bug reports](artifacts.md#bug-report) — the software does not do what it promised | How bad, and is it really a bug? |
-| `features/` | [Feature requests](artifacts.md#feature-request) — a specific thing someone wants built | Should this exist? |
-| `wishes/` | [Wishes](artifacts.md#wish) — vague, unshaped, possibly not actionable at all | What is actually being asked for? |
+| Lane        | What it holds                                                                           | First question                    |
+| ----------- | --------------------------------------------------------------------------------------- | --------------------------------- |
+| `bugs/`     | [Bug reports](artifacts.md#bug-report) — the software does not do what it promised      | How bad, and is it really a bug?  |
+| `features/` | [Feature requests](artifacts.md#feature-request) — a specific thing someone wants built | Should this exist?                |
+| `wishes/`   | [Wishes](artifacts.md#wish) — vague, unshaped, possibly not actionable at all           | What is actually being asked for? |
 
 The split matters because **only two of the three lanes get the taste gate**. A bug does not need a
 decision about whether the software ought to work; that was settled when the behaviour was
-specified. Sending bugs through the same admission question as feature requests is how a broken
-MVP workflow ends up queued behind a discussion about whether to build something else.
+specified. Sending bugs through the same admission question as feature requests is how a broken MVP
+workflow ends up queued behind a discussion about whether to build something else.
 
 Backports from the release branch land in `bugs/`, marked as backports.
 
@@ -101,27 +101,26 @@ and no one has complained. It gets investigated, triaged, and prioritized like a
 
 This is the case the severity scale handles badly on first reading. An exception with no user impact
 is outside both the MVP and the MLP, so it scores a P3, and P3 is correct — it is not urgent. The
-reason to investigate it anyway is that
-**severity measures current impact, not eventual cost**. An unexplained exception is a leading
-indicator: its real value is the probability that it becomes a P1 later, discovered now while it is
-cheap and while the change that caused it is still recent.
+reason to investigate it anyway is that **severity measures current impact, not eventual cost**. An
+unexplained exception is a leading indicator: its real value is the probability that it becomes a P1
+later, discovered now while it is cheap and while the change that caused it is still recent.
 
 Machine-filed bugs also change what lane validation means. For a human filing, the failure mode is a
 feature request wearing a bug costume. For a monitor, it is an alert that fires on behaviour which
-turns out to be correct — and the fix for that is to the alerting, not to the code. Both are
-"this is not a bug"; they route to completely different places.
+turns out to be correct — and the fix for that is to the alerting, not to the code. Both are "this
+is not a bug"; they route to completely different places.
 
-*This repo runs the same pattern on itself — [`_incoming/`](../_incoming/) here holds notes rather
+_This repo runs the same pattern on itself — [`_incoming/`](../_incoming/) here holds notes rather
 than requests and needs no lanes, but the mechanics are identical: free capture, deliberate
-processing, and deletion once the substance lives somewhere with a longer lifespan.*
+processing, and deletion once the substance lives somewhere with a longer lifespan._
 
 ### The fast track
 
-Items in `bugs/` do not wait for a human. An agent starts on arrival: confirm it is a bug, produce
-a reproduction, find the cause, propose a fix, assign a severity from the definitions below. By the
-time a person looks, the expensive part is done and what they are reading is an investigation
-rather than a complaint. For machine-filed arrivals there was never a person attached in the first
-place, which is where this earns most of its cost back.
+Items in `bugs/` do not wait for a human. An agent starts on arrival: confirm it is a bug, produce a
+reproduction, find the cause, propose a fix, assign a severity from the definitions below. By the
+time a person looks, the expensive part is done and what they are reading is an investigation rather
+than a complaint. For machine-filed arrivals there was never a person attached in the first place,
+which is where this earns most of its cost back.
 
 Investigation runs before triage, not after, and that inversion is deliberate. Severity depends on
 which workflow is affected, and that is frequently not knowable from the report — the reporter
@@ -135,21 +134,21 @@ Two constraints keep the fast track from making things worse.
 deliverable; the proposed fix is optional and secondary. An agent that cannot reproduce should
 report exactly that and stop, rather than producing something plausible.
 
-**Fast-tracking skips the queue, never the gates.** Cause and evidence are presented separately
-from the proposal so the human evaluates the problem before the answer — and the fix
-itself still passes every pre-merge gate. "Fast track" naming a shorter path through review is how
-a P0 fix causes the next P0.
+**Fast-tracking skips the queue, never the gates.** Cause and evidence are presented separately from
+the proposal so the human evaluates the problem before the answer — and the fix itself still passes
+every pre-merge gate. "Fast track" naming a shorter path through review is how a P0 fix causes the
+next P0.
 
 ## The intake gate
 
-For the two lanes that get one, a decision that is not a formality sits between intake and PRD:
-**do we build this, and in which shape**. Yegge's phrasing in the same piece is that there is a lot
-of taste involved, and it applies to both feature selection and architecture — we will do it this
-way and not that way, and no, we will not implement this at all.
+For the two lanes that get one, a decision that is not a formality sits between intake and PRD: **do
+we build this, and in which shape**. Yegge's phrasing in the same piece is that there is a lot of
+taste involved, and it applies to both feature selection and architecture — we will do it this way
+and not that way, and no, we will not implement this at all.
 
 The gate is where the human's remaining leverage concentrates. Generation is cheap; deciding what
-deserves generating is not. A pipeline without an explicit gate does not become faster, it becomes
-a machine for producing features nobody asked to keep.
+deserves generating is not. A pipeline without an explicit gate does not become faster, it becomes a
+machine for producing features nobody asked to keep.
 
 For `bugs/` the gate still runs, but its job is different: lane validation and severity, decided in
 seconds rather than days. No admission question, because there is nothing to admit.
@@ -166,12 +165,13 @@ errors.
 
 ## PRD
 
-Alignment output goes into a [PRD](artifacts.md#prd--product-requirements-document) — the *what* and
-the *why*, not the *how*. The PRD is the plan; nothing else gets written between agreeing what is
+Alignment output goes into a [PRD](artifacts.md#prd--product-requirements-document) — the _what_ and
+the _why_, not the _how_. The PRD is the plan; nothing else gets written between agreeing what is
 wanted and decomposing it into work.
 
 It also names which documentation artifacts this work is expected to change. These obligations
-decompose into beads with everything else, so the doc change lands in the same merge as the behaviour.
+decompose into beads with everything else, so the doc change lands in the same merge as the
+behaviour.
 
 The PRD is **transient by design**. It exists to be turned into work and then dissolved: its
 permanent parts are redistributed at closeout (see below) and the remainder is deleted. Keeping a
@@ -184,12 +184,12 @@ Once alignment is achieved the PRD is mapped into [beads](artifacts.md#the-graph
 start — the graph is the PRD in executable form, and that mapping is what ends it. Task state,
 sequencing, dependencies, and what is ready to work on live in the graph and nowhere else — the
 split is the whole reason for adopting it
-([`adoption/journey/beads-adoption.md`](../adoption/journey/beads-adoption.md)).
+([`_incoming/2026-08-07 1130 adoption-journey.md`](../_incoming/2026-08-07%201130%20adoption-journey.md)).
 
-One bead is special. **The last bead in the chain is the closeout bead**, and it is written when
-the feature is decomposed, not bolted on afterwards. If closeout is not a tracked unit of work with
-a dependency edge, it does not happen — this is the same failure mode as the test that was going to
-be written later.
+One bead is special. **The last bead in the chain is the closeout bead**, and it is written when the
+feature is decomposed, not bolted on afterwards. If closeout is not a tracked unit of work with a
+dependency edge, it does not happen — this is the same failure mode as the test that was going to be
+written later.
 
 ## Implementation
 
@@ -214,25 +214,25 @@ Generation is cheap and verification is the bottleneck, so the process should be
 produced and thick where it is judged. Each gate has an owner, a failure mode it exists to catch,
 and somewhere specific that a failure sends the work back to.
 
-They split around the merge, and the split only makes sense once one assumption is abandoned,
-stated first because everything below depends on it.
+They split around the merge, and the split only makes sense once one assumption is abandoned, stated
+first because everything below depends on it.
 
 ### Main is not stable
 
 The convention worth dropping is that the main line is green. It cannot be, at volume: when many
-agents merge many features a day, the window in which main is simultaneously integrated, tested,
-and correct closes. Defending that window means serialising the merges behind the slowest suite in
-the build, which is how a pipeline stops being fast.
+agents merge many features a day, the window in which main is simultaneously integrated, tested, and
+correct closes. Defending that window means serialising the merges behind the slowest suite in the
+build, which is how a pipeline stops being fast.
 
-So work takes a slot in a **merge queue** and merges (Yegge, *The Shape of Things to Come*, part
-one — **[source needed]** for the direct URL). Main is the integration point and the record of what
-has been accepted. It is not a promise that anything works, and no process step should be written
-as though it were.
+So work takes a slot in a **merge queue** and merges (Yegge, _The Shape of Things to Come_, part one
+— **[source needed]** for the direct URL). Main is the integration point and the record of what has
+been accepted. It is not a promise that anything works, and no process step should be written as
+though it were.
 
-Stability is not abandoned, it is relocated: it moves to a release branch, below. Main is where
-work accumulates; the branch is where it is made true. The consequence for everything after the
-merge queue is that **nothing running on main is a gate** — it produces signal and beads, and it
-blocks nobody.
+Stability is not abandoned, it is relocated: it moves to a release branch, below. Main is where work
+accumulates; the branch is where it is made true. The consequence for everything after the merge
+queue is that **nothing running on main is a gate** — it produces signal and beads, and it blocks
+nobody.
 
 ### Before the merge
 
@@ -255,7 +255,7 @@ blocks nobody.
    are green and nothing appears to be wrong. What it catches is the class of change that is
    individually fine and collectively corrosive: the duplicated abstraction, the fallback that
    papers over an unclear design, the module that now knows about something it should not. Outcome
-   is a verdict, and one legitimate verdict is *rebuild it differently*.
+   is a verdict, and one legitimate verdict is _rebuild it differently_.
 
    This gate is delegable to an agent, and the thing it depends on is the guard rails. Taste that
    has been externalized — a written SDD, recorded ADRs, stated invariants — is enforceable by
@@ -265,6 +265,7 @@ blocks nobody.
    goes down over time if those two documents are kept honest. What does not delegate is the
    escalation: an agent can find that a change violates the design, but deciding the design itself
    was wrong is a different act, and it belongs back at the intake gate.
+
 5. **Blast radius.** Which existing features does this touch or alter? Those get re-verified, not
    assumed. The bug in the changed code is the easy one; the bug is usually next door
    ([Nolan Lawson on reviewing what AI touched](https://nolanlawson.com/2026/05/25/using-ai-to-write-better-code-more-slowly/)).
@@ -282,11 +283,12 @@ None of these block anything. They run continuously against a line that is expec
 some of the time, and their output is beads.
 
 - **Whole-picture review.** A fan-out of agents looking at the codebase rather than any one diff:
-  cyclomatic complexity, naming coherence, security, architectural drift. Findings become beads or evaporate.
-- **Integration and e2e as signal.** Worth running on main anyway, to shorten the distance between
-  a defect being introduced and being noticed. A failure here is a bead, and the
-  useful thing it carries is the merge that caused it, which is cheap to identify now and expensive
-  to identify at cutover.
+  cyclomatic complexity, naming coherence, security, architectural drift. Findings become beads or
+  evaporate.
+- **Integration and e2e as signal.** Worth running on main anyway, to shorten the distance between a
+  defect being introduced and being noticed. A failure here is a bead, and the useful thing it
+  carries is the merge that caused it, which is cheap to identify now and expensive to identify at
+  cutover.
 
 ### The release branch
 
@@ -301,26 +303,26 @@ attaches to the flow.
    lands here.
 3. **Release.** Notes, version, deploy, and then watch this version specifically — report and
    analyse changed behaviour immediately rather than waiting for someone to complain.
-4. **Promotion, and the life after it.** Going live is tagging the candidate.
-   The release branch stays open for patches for as long as that version is in the field,
-   each patch stabilized and tagged the same way.
+4. **Promotion, and the life after it.** Going live is tagging the candidate. The release branch
+   stays open for patches for as long as that version is in the field, each patch stabilized and
+   tagged the same way.
 5. **Backport.** Every fix made on a release branch travels back to main as a
-   [backport bead](artifacts.md#backport-bead) carrying both the error and the fix, entering through
-   `_incoming/bugs/`. Beads outlive branches: they live in the graph and carry the fix as text.
+   [backport bead](artifacts.md#backport-request) carrying both the error and the fix, entering
+   through `_incoming/bugs/`. Beads outlive branches: they live in the graph and carry the fix as
+   text.
 
 That last step is the load-bearing one, and it is **not a cherry-pick**. Main has moved since the
-cutover, so the patch that worked on a frozen
-branch may not apply, may apply and be wrong, or may collide with a change that arrived in between.
-Sending the defect back as a bead with a known cause and a known remedy lets it be re-derived in
-main's context and pass through the ordinary gates. Slower per fix, and it is the difference
-between one codebase and two.
+cutover, so the patch that worked on a frozen branch may not apply, may apply and be wrong, or may
+collide with a change that arrived in between. Sending the defect back as a bead with a known cause
+and a known remedy lets it be re-derived in main's context and pass through the ordinary gates.
+Slower per fix, and it is the difference between one codebase and two.
 
 The bead is also the identity of the defect across both lines. Without it, the branch fix and the
 main fix are two unrelated pieces of work, and nothing detects the case where one landed and the
 other quietly did not.
 
 Routing backports through `_incoming/` keeps one door for everything, which is worth something on
-its own. The cost is that the intake gate now sees items whose *should this exist* question was
+its own. The cost is that the intake gate now sees items whose _should this exist_ question was
 answered on the branch, under release pressure. They should be marked as backports and treated as
 formalities there — a backport that sits in intake waiting to be judged is a fix that shipped to
 users and not to main.
@@ -343,44 +345,43 @@ means.
 
 Severity is not a feeling. It is a lookup against defined product scope:
 
-| Level | Definition | Anchored to |
-| --- | --- | --- |
-| **P0** | Everything is on fire. Nothing works, or a large fraction of users are affected. | Blast radius |
-| **P1** | One of the **MVP** workflows does not work in live. | MVP definition |
-| **P2** | Something in the **MLP** beyond the MVP does not work. | MLP definition |
-| **P3** | A defect outside both, including anything with no user-facing effect at all. | Neither |
+| Level  | Definition                                                                       | Anchored to    |
+| ------ | -------------------------------------------------------------------------------- | -------------- |
+| **P0** | Everything is on fire. Nothing works, or a large fraction of users are affected. | Blast radius   |
+| **P1** | One of the **MVP** workflows does not work in live.                              | MVP definition |
+| **P2** | Something in the **MLP** beyond the MVP does not work.                           | MLP definition |
+| **P3** | A defect outside both, including anything with no user-facing effect at all.     | Neither        |
 
 P0 and P1 measure different things — P0 is breadth across the system, P1 is depth against a named
 workflow — so the scale is not a single ordering and should not be forced into one. A single MVP
-workflow down for every user is the boundary case, and the useful question there is whether the
-rest of the system is still standing.
+workflow down for every user is the boundary case, and the useful question there is whether the rest
+of the system is still standing.
 
 P3 is the inference that completes the scale rather than something inherited from the definitions
 above it; if the intent is that everything outside the MLP is simply unprioritized, that is a
 different and also defensible model.
 
-The scale only works because the two scope definitions it points at are real, written artifacts:
-the [MVP and MLP definitions](artifacts.md#mvp-and-mlp-definitions), both permanent, both living in
-the specification as a tier field on each user journey.
+The scale only works because the two scope definitions it points at are real, written artifacts: the
+[MVP and MLP definitions](artifacts.md#mvp-and-mlp-definitions), both permanent, both living in the
+specification as a tier field on each user journey.
 
 The payoff is mechanical. P1 stops being an argument and becomes a set membership test: is this
 workflow on the MVP list? Anyone can check, including an agent, in the middle of an incident, under
-pressure, without waking anybody up.
-For the fast track it means severity assignment is a lookup an agent can do, leaving the human only the
-cases the lookup does not settle.
+pressure, without waking anybody up. For the fast track it means severity assignment is a lookup an
+agent can do, leaving the human only the cases the lookup does not settle.
 
 Drift does not disappear, it relocates. Scope creeps: over time everything becomes MVP, everything
-becomes a P1, and the scale flattens exactly as it would have without the anchor. The improvement
-is that the creep now happens in a version-controlled document a human argues about deliberately,
-instead of in a thousand individual triage decisions nobody reviews. Slower, and visible. Not
-cured. The obligation that comes with it — keeping both definitions current enough to be read
-during an incident — is in [`artifacts.md`](artifacts.md).
+becomes a P1, and the scale flattens exactly as it would have without the anchor. The improvement is
+that the creep now happens in a version-controlled document a human argues about deliberately,
+instead of in a thousand individual triage decisions nobody reviews. Slower, and visible. Not cured.
+The obligation that comes with it — keeping both definitions current enough to be read during an
+incident — is in [`artifacts.md`](artifacts.md).
 
 ### Rebase notification
 
 When a fix merges — to the release branch or to main — every agent with work in flight is now
-building on a base that is known to be wrong. They are told to rebase. This is a push, not
-something an agent is expected to discover.
+building on a base that is known to be wrong. They are told to rebase. This is a push, not something
+an agent is expected to discover.
 
 Severity grades the response as well as the fix. A P0 or P1 means rebase now, mid-work, because
 continuing means either re-introducing the defect or colliding with its remedy. Lower priorities
@@ -389,14 +390,14 @@ mean rebase at the next natural boundary, where the cost of the interruption exc
 Two things stop this from being a stampede.
 
 **Notify onto a commit, not onto a branch.** Twenty agents told to "rebase onto main" chase a line
-that keeps moving, and some of those rebases are invalid before they finish. The merge queue
-already serialises landings, so it can name the target: rebase onto this commit. The target holds
-still even if main does not.
+that keeps moving, and some of those rebases are invalid before they finish. The merge queue already
+serialises landings, so it can name the target: rebase onto this commit. The target holds still even
+if main does not.
 
-**Do not make the working agent resolve the conflict.** An agent mid-implementation, holding a
-large diff and its own reasoning, is the worst-placed party to absorb someone else's change — in
-practice it either overwrites the other work or abandons its own. Cursor's answer was a neutral
-third-party agent whose only goal is to be impartial and efficient, in the way a merge queue is
+**Do not make the working agent resolve the conflict.** An agent mid-implementation, holding a large
+diff and its own reasoning, is the worst-placed party to absorb someone else's change — in practice
+it either overwrites the other work or abandons its own. Cursor's answer was a neutral third-party
+agent whose only goal is to be impartial and efficient, in the way a merge queue is
 ([agent swarm model economics](https://cursor.com/blog/agent-swarm-model-economics)). The same
 answer applies here, and it applies hardest exactly when the rebase is urgent.
 
@@ -416,30 +417,30 @@ spin-up blocks every branch behind it and the people attached to them; on the re
 blocks nothing that was going anywhere.
 
 The load this shifts is onto the pre-merge gates. They are now the only quality signal that acts on
-main at the moment work lands, and everything they miss becomes stabilization cost at cutover,
-where it is discovered furthest from the change that caused it. A cheap merge queue does not mean a
-cheap process — it means the expense moved.
+main at the moment work lands, and everything they miss becomes stabilization cost at cutover, where
+it is discovered furthest from the change that caused it. A cheap merge queue does not mean a cheap
+process — it means the expense moved.
 
 Findings from any gate are transient. They are either fixed immediately or converted into a bead;
 they are never a document that accumulates.
 
 The reason a finding becomes a bead rather than a message to the working agent is context. The agent
 that produced the code is in the middle of something, and a finding pushed into its window
-sidetracks it, so we save it for later. Findings
-from the feature's own gates are worked in the same iteration as the PRD beads that produced them.
+sidetracks it, so we save it for later. Findings from the feature's own gates are worked in the same
+iteration as the PRD beads that produced them.
 
 ## Closeout
 
 Closeout exists to make sure documentation is clean and up to date. It reads the original request
 and the PRD next to what was actually built. That gap, intent versus outcome, is the thing nobody
-usually has time for, and it is the whole reason to make it a bead.
-It is written when the feature is decomposed, before any of the work starts, so the checklist exists
-before there is anything to check.
+usually has time for, and it is the whole reason to make it a bead. It is written when the feature
+is decomposed, before any of the work starts, so the checklist exists before there is anything to
+check.
 
 Its checklist, each item an obligation the PRD named and a bead should already have discharged:
 
-- Fold the implemented behaviour into the
-  [specification](artifacts.md#specification-and-user-journeys), as a user journey where that fits.
+- Fold the implemented behaviour into the [specification](artifacts.md#product-specification), as a
+  user journey where that fits.
 - Rewrite the affected parts of the [SDD](artifacts.md#sdd--software-design-document) to describe
   the system as it now stands. Rewrite, not append — the SDD carries no history, so a design that
   changed leaves no trace of what it used to be.
@@ -447,15 +448,13 @@ Its checklist, each item an obligation the PRD named and a bead should already h
   [ADRs](artifacts.md#adr--architecture-decision-record), including the ones the SDD rewrite just
   erased the evidence of. Structural decisions taken while the code was being written are exactly
   the ones that get lost, and the SDD is now the document that loses them.
-- Update the [e2e scenarios](artifacts.md#tests), the
-  [changelog](artifacts.md#changelog), the [roadmap](artifacts.md#roadmap), and the
-  [operations manual](artifacts.md#operations-manual).
+- Update the [e2e scenarios](artifacts.md#test-concept), the [changelog](artifacts.md#changelog),
+  the [roadmap](artifacts.md#roadmap), and the [operations manual](artifacts.md#operations-manual).
 - Re-verify neighbouring documentation. What did this change make wrong? Stale docs are worse than
   missing ones, because an agent believes them.
 - Reference the originating bead from each document it touched, so provenance survives the deletion
   of the PRD.
-- Note the deployment risks and what needs
-  [observing on this feature](artifacts.md#observability-notes) specifically. The go-live date is not
+- Note the deployment risks and what needs operations manual specifically. The go-live date is not
   knowable here — it belongs to whichever cutover picks the work up.
 - Notify the requester when it goes live. The wish factory only keeps working if wishes come back.
 
@@ -473,12 +472,12 @@ an ordinary conflict on an ordinary file and rebases, exactly as it would for co
 
 ## Where things live
 
-Every artifact named above — what belongs in it, what it is for, and how long it is allowed to
-live — is catalogued in [`artifacts.md`](artifacts.md), together with the lifespan table and the
+Every artifact named above — what belongs in it, what it is for, and how long it is allowed to live
+— is catalogued in [`artifacts.md`](artifacts.md), together with the lifespan table and the
 reasoning about why the deletions matter.
 
-The rule the whole lifecycle rests on: **a document is deleted only once every durable fact it
-holds lives somewhere with a longer lifespan.** Deletion is a move, not a loss.
+The rule the whole lifecycle rests on: **a document is deleted only once every durable fact it holds
+lives somewhere with a longer lifespan.** Deletion is a move, not a loss.
 
 ## Open questions
 

@@ -5,8 +5,8 @@ tags: [aglc, releasing, process]
 
 # Releasing
 
-Two kinds of line — main and the release branches carrying candidates — and a tag that says a
-commit is going live.
+Two kinds of line — main and the release branches carrying candidates — and a tag that says a commit
+is going live.
 
 The companion to [`feature-lifecycle.md`](feature-lifecycle.md), which places the cutover in the
 process, and to [`artifacts.md`](artifacts.md), which catalogues everything else the lifecycle
@@ -24,8 +24,8 @@ the purpose.
 ## Going live is a tag
 
 Releasing is **tagging a commit on a stable release branch**, and the tag is what makes it go live.
-The tags are immutable, so every release ever made stays nameable.
-How a tag reaches the running system is not currently part of the AGLC.
+The tags are immutable, so every release ever made stays nameable. How a tag reaches the running
+system is not currently part of the AGLC.
 
 ## The release branch
 
@@ -39,8 +39,8 @@ A release branch has two working states.
 3. **Retired.** When no version anyone can still be running comes from this line, the branch can be
    deleted. The tags stay.
 
-More than one branch exists because the two states overlap: the shipped line is taking patches
-while the next line stabilizes.
+More than one branch exists because the two states overlap: the shipped line is taking patches while
+the next line stabilizes.
 
 ## Promotion and rollback
 
@@ -53,12 +53,12 @@ Rolling back is going back to the previous release tag.
 
 A defect found in the field or during stabilization is fixed on the release branch it belongs to.
 
-Every such fix travels to main as a [backport bead](artifacts.md#backport-bead) carrying the error
-and the remedy.
+Every such fix travels to main as a [backport bead](artifacts.md#backport-request) carrying the
+error and the remedy.
 
 ## The process lives in `RELEASING.md`
 
-This note is the model — the lines, what they are for, and what a tag means. The *procedure* is
+This note is the model — the lines, what they are for, and what a tag means. The _procedure_ is
 per-repository and belongs in the repository, as `RELEASING.md` in the root.
 
 It is a permanent artifact, present tense, rewritten to match how releasing works today. What
@@ -73,11 +73,11 @@ belongs in it is everything the model deliberately does not know:
 
 ## Lifespans
 
-| Artifact | Lifespan | Ended by |
-| --- | --- | --- |
-| `main` | Permanent | Never |
-| Live release tag | Permanent | Never |
-| Release branch, stabilizing | Until a candidate is released | The release tag |
-| Release branch, supported | Until nothing from this line is in the field | Deletion |
-| Release candidate tag | Until its line retires | Deletion with the branch |
-| Backport bead | Until the fix lands on every line it owes | Closing on main |
+| Artifact                    | Lifespan                                     | Ended by                 |
+| --------------------------- | -------------------------------------------- | ------------------------ |
+| `main`                      | Permanent                                    | Never                    |
+| Live release tag            | Permanent                                    | Never                    |
+| Release branch, stabilizing | Until a candidate is released                | The release tag          |
+| Release branch, supported   | Until nothing from this line is in the field | Deletion                 |
+| Release candidate tag       | Until its line retires                       | Deletion with the branch |
+| Backport bead               | Until the fix lands on every line it owes    | Closing on main          |
