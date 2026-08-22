@@ -1,10 +1,14 @@
 # Journey
 
-My own path into agentic development: what changed, when, what forced each change, and what it cost.
+Mein eigener Weg der KI Adoption
+
+- was sich verändert hat und wann
+- was diese Veränderung erbracht, und
+- was sie gekostet hat.
 
 - Attention is all you need
 - Context engineering
-- steipete: Shipping at inference speed
+- [steipete: Shipping at inference speed](https://steipete.me/posts/2025/shipping-at-inference-speed)
 - Steve Yegge: Gastown
 - Spec driven development heise
 - Boris Czerny: Loops

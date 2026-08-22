@@ -1,7 +1,7 @@
 # AI
 
-Hier geht es um einen **pragmatischen, fokussierten Überblick** im Thema
-**konkreter Einsatz von KI** für Unternehmen, Individuen und die Gesellschaft allgemein, konkret:
+Diese Seiten bieten einen **pragmatischen, fokussierten Überblick** zum Einsatz von
+KI für Unternehmen, Individuen und die Gesellschaft; konkret:
 
 - Wie kann man KI einsetzen? Warum sollte man das tun? Was muss man dabei beachten?
 - Was sind die Grundkonzepte und Verfahren?
@@ -12,27 +12,37 @@ Die Seiten sind mit ❤️ von Menschenhand gemacht 🤗 und mit Unterstützung 
 
 ## Aufbau
 
-[Konzepte](concepts/): Erklärt Konzepte, Begriffe, Verfahren (LLM, Agent, Harness, Eval)
-Wer schon länger im Thema KI unterwegs ist, kann diesen Abschnitt überspringen.
+### Konzepte, First principles, Begriffe
 
-Der Ansatz ist weiter unten erklärt. Im Wesentlichen teilen wir den Einsatz von KI drei Bereiche:
+[Konzepte](concepts/README.md): Erklärt Konzepte, Begriffe, Verfahren (LLM, Agent, Harness, Eval). Wer schon
+länger im Thema KI unterwegs ist, kann diesen Abschnitt überspringen.
 
-[Kommunikation](communication/) Wie kommuniziert man effektiv (prompting, context, feedback)
-[Ausführung](execution/) Wie bindet man KI in ein?
-[Validierung](verification) Wie verifiziert man die Ergebnisse?
+### Ansatz
 
-Weitere Fragen, die wir behandeln:
+Einsatz von KI ist empfehlenswert für uns alle. Die Erfolgskriterien sind gute Kommunikation und Prozesse,
+Ergebniskontrolle, und stetiges Lernen und Verbessern.
 
-[Ausgestaltung von Abläufen im Softwareengineering ("AGLC")](aglc/)
-[Themen im Bereich Sicherheit und Risikomanagement](risk+security)
+Im Wesentlichen teilen wir den Einsatz von KI drei Bereiche:
 
-Der Sektor bewegt sich rasend schnell, daher sind hier Seiten im Zulauf:
+- [Kommunikation](communication/README.md): Wie kommuniziert man effektiv (Prompting, Kontext, Feedback)?
+- [Ausführung](execution/README.md): Wie bindet man KI ein?
+- [Validierung](verification/README.md): Wie verifiziert man die Ergebnisse?
 
-[incoming](_incoming/) Eingehende noch nicht behandelte Themen, Links, Zitate, Gedanken.
-[blog](_blog/) Vorbereitung für Blogposts und strukturierte Posts, Arbeitsstände.
+Weitere Fragen, die behandelt werden:
 
-[Protokoll/Log der einlaufenden Informationen](_journey/), was hier eingeflossen ist.
+- [Ausgestaltung von Abläufen im Softwareengineering ("AGLC")](aglc/README.md)
+- [Themen im Bereich Sicherheit und Risikomanagement](risk+security/README.md)
+- [Tool-Unterstützung](./tools/README.md)
 
-## License
+## Zulauf / Entwurfsbereich Webseite / Personal journey
 
-Alle Texte unter [CC BY 4.0](LICENSE). Attribution appreciated, reuse encouraged.
+Der Sektor bewegt sich rasend schnell, daher sind jederzeit Seiten in Arbeit/ Zulauf/ Ablauf:
+
+- [incoming](_incoming/README.md): Eingehende noch nicht behandelte Themen, Links, Zitate, Gedanken.
+- [blog](_blog/README.md): Vorbereitung für Blogposts und strukturierte Posts, Arbeitsstände.
+- [Protokoll/Log der einlaufenden Informationen](_journey/README.md): alles, was hier eingeflossen ist.
+
+## Lizenz
+
+Alle Texte unter [CC BY 4.0](LICENSE). Namensnennung willkommen, Weiterverwendung ausdrücklich
+erwünscht.

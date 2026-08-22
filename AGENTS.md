@@ -2,19 +2,17 @@
 
 ## What this repo is
 
-A knowledge base of Markdown notes about AI agents: communication, the agentic
+A knowledge base of AI facts, concepts, adoption strategies, engineering, communication, the agentic
 development life cycle, business adoption, and societal impact.
 
 ## Layout
 
 ```text
-_incoming/   raw unsorted capture, trends toward empty
-_blog/       staging for posts, trends toward empty
-communication/ aglc/ tools/ reference/
-adoption/    business/ society/ journey/ — three aspects of adoption
+_incoming/   raw unsorted capture
+_blog/       staging for blog posts
+README.md    root document that leads to the topic folders
+<topic folder> topic folder has a `README.md` index listing its notes to make this work on github.
 ```
-
-Each topic folder has a `README.md` index listing its notes.
 
 ## Intake workflow
 
@@ -43,25 +41,22 @@ Then, judge whether a theme has accumulated enough substance for one coherent po
 
 Ask the human about it. When they say go:
 
-1. Create a post in the website repo, following that repo's rules.
+1. Draft a post in this repo, following that repo's rules.
 1. Use prose written fresh in the author's voice, with the drafts as raw material.
 1. The human will then iterate on the post.
 1. When the post is finished and no longer a draft, delete every `_blog/` entry it drew on.
 
-An entry that never becomes a post is deleted when it stops being worth writing about. `_blog/`
-trends toward empty; a growing pool means the decision is being deferred.
-
 ## Writing conventions
 
+- currently mixed english/german, the intended project language is german, tranlsated later 
 - One topic per file, lowercase slug filenames: `context-engineering.md`.
 - `# H1` title, then a one-line summary sentence.
 - Every topic folder keeps a `README.md` index; add new notes to it.
 - Optional frontmatter: `status: seed|draft|solid`, `tags: [...]`.
-- Wrap prose at 100 characters. Follow the `markdownlint` skill; config is `.markdownlint.json`.
-- Distinguish the author's own position from summarized sources. Attribute claims that came from
-  somewhere else, with a link.
-- Do not invent citations, statistics, or quotes. If a claim needs a source and none is at hand,
-  mark it `[source needed]`.
+- Wrap prose following the `markdownlint` skill; config is `.markdownlint.json`.
+- Attribute claims that came from somewhere else, with a link.
+  If a claim needs a source and none is at hand, mark it `[source needed]`.
+- Do not invent citations, statistics, or quotes.
 
 ## Editing rules
 

@@ -1,25 +1,21 @@
 # _blog
 
-Staging for posts. Entries here are drafts and raw material waiting to become something on the
-website.
+Staging für Posts. Einträge sind Entwürfe und Rohmaterial für Blogposts auf der Webseite.
 
 ## Format
 
-Files are named `YYYY-MM-DD-HHmm-<slug>.md`, stamped with the moment they were written — 24-hour
-clock, no colon, so several a day stay distinct and sort in order. Each opens with its title, then a
-pointer block saying where its substance already lives:
+Dateien heißen `YYYY-MM-DD-HHmm-<slug>.md`, Zeitstempel des Posts. Format so gewählt, damit mehrere Einträge pro Tag sortierbar bleiben. 
+
+Format:
 
 ```markdown
-# Outline / title
-
-> Drawn from [aglc/artifacts.md](../aglc/artifacts.md).
-> Post: none yet.
+# Titel
 
 # TLDR
 
-=> Short version of what the post is about
+Outline / kurzer Anriss, worum es im Post geht
 
 # Content
 
-=> The post content
+=> Inhalt des Posts
 ```
