@@ -25,7 +25,7 @@ When asked to process `_incoming/`:
 1. When everything has been integrated, run the posting check below.
 1. Delete the incoming piece.
 
-## Posting check
+## Blog workflow
 
 While working on this repo, we try to gather material for website posts. The website at `../website`
 is the publishing target. `_blog/` contains drafts and raw material.
@@ -35,7 +35,25 @@ Therefore, every time an item is processed from `_incoming`, we should either:
 - add to an existing draft when it fits there, with date/time and a gist of what we did
 - create a new draft with a summary of the changes if there is no fitting draft
 
-Draft format is in `_blog/README.md`.
+Blog draft files are named `YYYY-MM-DD-HHmm-<slug>.md`, using the timestamp of the draft/post.
+Format:
+
+```markdown
+# Title
+
+## TLDR
+
+Outline / kurzer Anriss, worum es im Post geht
+
+## Content
+
+=> Inhalt des Posts
+```
+
+When a `_journey/` entry or part of an entry becomes a blog draft, keep the journey file, but do not
+duplicate the full post content there. Replace the extracted part with a short provenance note and a
+relative link to the `_blog/` draft. When the post is later published on the website, that journey
+link can be changed from the `_blog/` draft to the website URL.
 
 Then, judge whether a theme has accumulated enough substance for one coherent post.
 
@@ -48,14 +66,14 @@ Ask the human about it. When they say go:
 
 ## Writing conventions
 
-- currently mixed english/german, the intended project language is german, tranlsated later 
+- currently mixed english/german, the intended project language is german, tranlsated later
 - One topic per file, lowercase slug filenames: `context-engineering.md`.
 - `# H1` title, then a one-line summary sentence.
 - Every topic folder keeps a `README.md` index; add new notes to it.
 - Optional frontmatter: `status: seed|draft|solid`, `tags: [...]`.
 - Wrap prose following the `markdownlint` skill; config is `.markdownlint.json`.
-- Attribute claims that came from somewhere else, with a link.
-  If a claim needs a source and none is at hand, mark it `[source needed]`.
+- Attribute claims that came from somewhere else, with a link. If a claim needs a source and none is
+  at hand, mark it `[source needed]`.
 - Do not invent citations, statistics, or quotes.
 
 ## Editing rules
